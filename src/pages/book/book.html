@@ -1,18 +1,67 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-     book
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>
+			book
+		</ion-title>
+	</ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <button (click)="reBack()">
-      There's no place like home
-    </button>
-  <ion-card>
-<ion-card-header>
-book to read
-</ion-card-header>
-</ion-card>
+<ion-content>
+
+	<ion-toolbar>
+		<ion-row>
+			<ion-col width-33>
+				<div>
+					<h3>All</h3>
+				</div>
+			</ion-col>
+			<ion-col width-33>
+				<div>
+					<h3>Short</h3>
+				</div>
+			</ion-col>
+			<ion-col width-33>
+				<div>
+					<h3>series</h3>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-toolbar>
+	<div padding>
+		<ion-segment [(ngModel)]="category">
+			<ion-segment-button value="series">
+				series
+			</ion-segment-button>
+			<ion-segment-button value="solo">
+				Solo
+			</ion-segment-button>
+		</ion-segment>
+	</div>
+
+	<div [ngSwitch]="category">
+		<ion-list *ngSwitchCase="'series'">
+			<ion-item>
+
+				<img width="100%" src="img/katuni/love tz.jpeg">
+
+				<h2>Ruby</h2>
+			</ion-item>
+			...
+		</ion-list>
+
+		<ion-list *ngSwitchCase="'solo'">
+			<ion-item>
+
+				<img src="img/katuni/masoudi.jpeg">
+
+				<h2>Luna</h2>
+			</ion-item>
+			...
+		</ion-list>
+	</div>
+	<ion-card>
+		<ion-card-header>
+			book to read
+		</ion-card-header>
+	</ion-card>
 </ion-content>

@@ -14,9 +14,6 @@ export class BookPage {
 
 
 
-reBack(){
-  console.log("hey i am clicked out");
-  this.navCtrl.pop(BookPage)
-}
+
 
 }

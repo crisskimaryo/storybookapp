@@ -1,12 +1,97 @@
-<ion-header >
-  <ion-navbar>
-    <ion-title>storybook</ion-title>
-  </ion-navbar>
+<ion-header>
+	<ion-navbar primary>
+		<ion-title>storybook</ion-title>
+	</ion-navbar>
 </ion-header>
 
-<ion-content >
-<button (click)="goBack()">
-      There's no place like home
-    </button>
-  	
+<ion-content>
+
+	<ion-list>
+		<ion-list-header style="text-align: center;">
+			Popular Stories
+		</ion-list-header>
+		<ion-slides pager>
+			<ion-slide *ngFor="let j of jj">
+				<ion-card>
+					<img src="img/katuni/masoudi.jpeg" />
+
+				</ion-card>
+			</ion-slide>
+		</ion-slides>
+
+	</ion-list>
+
+
+	<ion-list>
+		<ion-list-header style="text-align: center;">
+			Popular Stories
+		</ion-list-header>
+		<ion-row wrap>
+
+			<ion-col width-50 *ngFor="let img of images">
+				<img [src]="img.img" width="100%">
+				<span style=" top:80%;">
+          <ion-row >
+					<ion-col width-50>
+						<button ion-button color="primary" clear small icon-left>
+        <ion-icon name='eye'></ion-icon>
+        12 k
+      </button>
+					</ion-col>
+
+					<ion-col width-50>
+						<button ion-button color="primary" clear small icon-left>
+        <ion-icon name='heart'></ion-icon>
+        4 m
+      </button>
+					</ion-col>
+
+				</ion-row>
+				</span>
+			</ion-col>
+
+		</ion-row>
+	</ion-list>
+
+
+
+
+	<ion-card>
+		<img src="img/katuni/simba.jpeg">
+		<ion-row>
+			<ion-col>
+				<button ion-button color="primary" clear small icon-left>
+        <ion-icon name='eye'></ion-icon>
+        12 Views
+      </button>
+			</ion-col>
+
+			<ion-col>
+				<button ion-button color="primary" clear small icon-left>
+        <ion-icon name='comment'></ion-icon>
+        12 Views
+      </button>
+			</ion-col>
+			<ion-col>
+				<button ion-button color="primary" clear small icon-left>
+        <ion-icon name='heart'></ion-icon>
+        4 Comments
+      </button>
+			</ion-col>
+			<ion-col center text-center *ngIf="1>3">
+				<ion-note>
+					11h ago
+				</ion-note>
+			</ion-col>
+		</ion-row>
+
+	</ion-card>
+
+
 </ion-content>
+
+<style>
+	.social-cards ion-col {
+		padding: 0;
+	}
+</style>

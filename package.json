@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "^0.0.36",
+    "ionic-gulp-image-task": "^1.0.1",
     "typescript": "^2.0.3"
   },
   "description": "storybook: An Ionic project",

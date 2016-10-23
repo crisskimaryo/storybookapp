@@ -5,6 +5,7 @@ import { ListenPage } from '../pages/listen/listen';
 import { BookPage } from '../pages/book/book';
 import { ImagePage } from '../pages/image/image';
 import { HomePage } from '../pages/home/home';
+import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
     ImagePage,
     BookPage,
     HomePage,
+    ProfilePage,
     TabsPage
   ],
   imports: [
@@ -26,8 +28,9 @@ import { TabsPage } from '../pages/tabs/tabs';
     ImagePage,
     BookPage,
     HomePage,
+    ProfilePage,
     TabsPage
   ],
   providers: []
 })
-export class AppModule {}
+export class AppModule { }
