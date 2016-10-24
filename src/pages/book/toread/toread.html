@@ -1,0 +1,46 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Njia Panda
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<div>
+		<img src="img/toread.png" width="100%">
+	</div>
+	<ion-item (click)="read()">
+		<h2> Shomba Mnato</h2>
+		<h5> Sehemu ya saba</h5>
+	</ion-item>
+
+
+	<ion-list>
+		<ion-item-sliding>
+			<ion-item  (click)="read()">
+				<h2> Mama ni mama</h2>
+				<h5> Sehemu ya nane</h5>
+			</ion-item>
+			<ion-item-options side="left">
+				<button primary>
+        <ion-icon name="bookmark"></ion-icon>
+        bookmark
+      </button>
+				<button secondary>
+        <ion-icon name="call"></ion-icon>
+        something
+      </button>
+			</ion-item-options>
+			<ion-item-options side="right">
+				<button primary>
+        <ion-icon name="mail"></ion-icon>
+        something
+      </button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+
+
+</ion-content>

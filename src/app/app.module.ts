@@ -7,6 +7,9 @@ import { ImagePage } from '../pages/image/image';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
+// sub
+import { ToreadPage } from '../pages/book/toread/toread';
+import { ReadPage } from '../pages/book/read/read';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     ListenPage,
     ImagePage,
     BookPage,
+    ToreadPage,
+    ReadPage,
     HomePage,
     ProfilePage,
     TabsPage
@@ -27,6 +32,8 @@ import { TabsPage } from '../pages/tabs/tabs';
     ListenPage,
     ImagePage,
     BookPage,
+    ToreadPage,
+    ReadPage,
     HomePage,
     ProfilePage,
     TabsPage

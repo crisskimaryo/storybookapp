@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
-import { ProfilePage } from '../profile/profile';
+
+import { ToreadPage } from '../book/toread/toread';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  // for testing array data in html
   jj: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   images: any = [
 
@@ -24,13 +26,13 @@ export class HomePage {
       img:"img/katuni/simba.jpeg",
     },
   ];
-  pp: any = [1, 2,3,4,5];
+
   constructor(public navCtrl: NavController) {
   }
 
-  likeme() {
+ navstry() {
 
-    this.navCtrl.push(ProfilePage)
+    this.navCtrl.push(ToreadPage)
   }
 
 }
