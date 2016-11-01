@@ -1,43 +1,70 @@
-<!--<ion-header>
-	<ion-navbar>
-		<ion-title>
-			Njia Panda
-		</ion-title>
-	</ion-navbar>
-</ion-header>-->
-	<ion-toolbar primary>
+<ion-header>
+	<!--<ion-navbar *navbar>
 		<ion-buttons start>
 			<button ion-button icon-only (click)="closebt()">
-        <ion-icon name="back"></ion-icon>
+        <ion-icon name="close"></ion-icon>
       </button>
 		</ion-buttons>
 		<ion-buttons end>
-			<button ion-button icon-only (click)="closebt()">
-        <ion-icon name="close"></ion-icon>
+			<button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
       </button>
 		</ion-buttons>
 		<ion-title>
 			sehemu ya saba
 		</ion-title>
-	</ion-toolbar>
-<ion-content>
+	</ion-navbar>-->
 
+	<div style="position:static; top:0%;background-color: rgba(255, 255, 255, .5);">
+		<ion-row>
 
-	<ion-slides pager>
-		<ion-slide style="$[1:background-color: green}">
+			<ion-col >
+				<ion-buttons start>
+					<button clear ion-button (click)="closebt()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+				</ion-buttons>
+			</ion-col>
+			<ion-col style="text-align:center; margin-top:10px;">
+				<ion-title>
+					sehemu ya saba
+				</ion-title>
+			</ion-col>
+			<ion-col >
+				<ion-buttons end>
+					<button ion-button clear>
+      <ion-icon name="bookmark"></ion-icon>
 
-			<img src="img/read.png" width="100%">
+    </button>
+				</ion-buttons>
+			</ion-col>
+		</ion-row>
 
-		</ion-slide>
-		<ion-slide style="$[1:background-color: green}">
+	</div>
+</ion-header>
+<ion-content padding>
 
-			<img src="img/read.png" width="100%">
-
-		</ion-slide>
-		<ion-slide style="$[1:background-color: green}">
-
-			<img src="img/read.png" width="100%">
-
+	<ion-slides>
+		<ion-slide *ngFor="let item of readstorieslist">
+			<div padding-top padding-buttom style="height:100p%;width:100%; text-align:justify;">
+				<b><p  [innerHTML]="item.title"></p></b>
+				<p style=" text-indent:40px;line-height: 1.5;" [innerHTML]="item.content"></p>
+			</div>
 		</ion-slide>
 	</ion-slides>
+
+
+	<!--<ion-slides pager>
+		<ion-slide padding  *ngFor="let rst of readstorieslist" >
+
+				<div>
+					<p >
+						{{rst.content}}
+					</p>
+				</div>
+
+		</ion-slide>
+
+
+	</ion-slides>-->
 </ion-content>

@@ -1,97 +1,88 @@
 <ion-header>
 	<ion-navbar primary>
-		<ion-title>storybook</ion-title>
+    	<ion-buttons start>
+			<button ion-button icon-only>
+          <ion-icon name="person-add"></ion-icon>
+        </button>
+		</ion-buttons>
+    <ion-title>storybook</ion-title>
+    	<ion-buttons end>
+			<button ion-button icon-only>
+          <ion-icon name="settings"></ion-icon>
+        </button>
+		</ion-buttons>
+
 	</ion-navbar>
+
+
 </ion-header>
 
 <ion-content>
-
+<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 	<ion-list>
 		<ion-list-header style="text-align: center;">
 			Popular Stories
 		</ion-list-header>
 		<ion-slides pager>
-			<ion-slide *ngFor="let j of jj">
+			<ion-slide *ngFor="let j of images">
 				<ion-card>
-					<img src="img/katuni/masoudi.jpeg" />
-
+					<ion-img [src]="j.img" style="max-height:150px;"></ion-img>
 				</ion-card>
 			</ion-slide>
 		</ion-slides>
 
 	</ion-list>
 
+	<ion-list no-lines>
+		<ion-list-header>
 
-	<ion-list>
-		<ion-list-header style="text-align: center;">
 			Popular Stories
+
 		</ion-list-header>
-		<ion-row wrap>
-			<ion-col width-50 *ngFor="let img of images">
-				<div style="position: relative; height:100%; padding:0px; width:100%;">
-					<div style="position: absolute; top:0%; height:100%;  width:100%; background-color: rgba(0, 0, 0, .5); ">
-						<span style="position: absolute; top:0%; height:50%;  width:100%; color:ghostwhite; padding:5px;" (click)="navstry()">
-           scorpion mtata
-        </span>
-					</div>
-					<img [src]="img.img" width="100%" height="100%" />
-					<div style="position: absolute; top:65%;  width:100%; background-color: rgba(0, 0, 0, .1); " padding-buttom>
-						<ion-row>
-							<ion-col width-50>
-								<button ion-button color="primary" clear small icon-left>
-        <ion-icon name='eye'></ion-icon>
+		<div style="padding:1px;">
+
+
+
+			<ion-row wrap>
+				<ion-col width-50 style="width:100%;  padding:0px;padding-left:1px; padding-bottom:2px;" *ngFor="let img of images">
+					<div style="position: relative; height:100%; padding:0px; width:100%;">
+						<div style="position: absolute; top:0%; height:100%;  width:100%; background-color: rgba(0, 0, 0, .5); ">
+							<div style="position: absolute; top:0%; height:50%;  width:100%; color:ghostwhite; padding:5px;" (click)="navstry()">
+								{{img.title}}
+							</div>
+						</div>
+							<img [src]="img.img" width="100%" >
+						<div style="position: absolute; top:65%;  width:100%; background-color: rgba(0, 0, 0, .1); ">
+							<ion-row color="danger">
+								<ion-col width-50>
+									<button ion-button  color="danger" clear small icon-left>
+        <ion-icon  name='eye'></ion-icon>
         12 k
       </button>
-							</ion-col>
+								</ion-col>
 
-							<ion-col width-50>
-								<button ion-button color="primary" clear small icon-left>
+								<ion-col width-50>
+									<button ion-button color="danger" clear small icon-left>
         <ion-icon name='heart'></ion-icon>
         4 m
       </button>
-							</ion-col>
+								</ion-col>
 
-						</ion-row>
+							</ion-row>
+						</div>
+						<!--<div class="font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff;">ngngng</div>-->
 					</div>
-					<!--<div class="font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff;">ngngng</div>-->
-				</div>
-			</ion-col>
-		</ion-row>
-		<ion-list-header style="text-align: center;">
-			Popular Stories
-		</ion-list-header>
-		<ion-row wrap>
+				</ion-col>
+			</ion-row>
 
-			<ion-col width-50 *ngFor="let img of images">
-				<img [src]="img.img" width="100%">
-				<span style=" top:80%;">
-          <ion-row >
-					<ion-col width-50>
-						<button ion-button color="primary" clear small icon-left>
-        <ion-icon name='eye'></ion-icon>
-        12 k
-      </button>
-					</ion-col>
+		</div>
 
-					<ion-col width-50>
-						<button ion-button color="primary" clear small icon-left>
-        <ion-icon name='heart'></ion-icon>
-        4 m
-      </button>
-					</ion-col>
-
-				</ion-row>
-				</span>
-			</ion-col>
-
-		</ion-row>
 	</ion-list>
 
 
 
-
 	<ion-card>
-		<img src="img/katuni/simba.jpeg">
+		<ion-img src="img/katuni/simba.jpeg"></ion-img>
 		<ion-row>
 			<ion-col>
 				<button ion-button color="primary" clear small icon-left>
@@ -121,11 +112,4 @@
 
 	</ion-card>
 
-
 </ion-content>
-
-<style>
-	.social-cards ion-col {
-		padding: 0;
-	}
-</style>
