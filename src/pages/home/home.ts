@@ -1,68 +1,46 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToreadPage } from '../book/toread/toread';
+import { Data } from '../../providers/data'
+import { Http } from '@angular/http';
+
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [Data]
 })
 export class HomePage {
-  // for testing array data in html
-  jj: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+
   images: any[];
 
-
   searchQuery: string = '';
-
-
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private dataService: Data, public http: Http) {
     this.initializedata();
+
+    this.http.get('http://crisskimaryo.pythonanywhere.com/sb_api1/books/')
+      .map(res => res.json())
+      .subscribe(
+      data => {
+        this.images = data;
+        console.log(this.images)
+      },
+      err => {
+        alert(err);
+        console.log(err);
+      },
+
+    );
+
+
+    // console.log(dataService.getbooks());
+    // console.log(dataService.getbook());
+
   }
 
   initializedata() {
-    this.images = [
-
-       {
-        title: "masudi kipanya",
-        img: "img/katuni/mombasa kisiwa.jpeg",
-      },
-      {
-        title: "masai mjini",
-        img: "img/katuni/masai.jpeg",
-      },
-      {
-        title: "traffic noma",
-        img: "img/katuni/traffic.jpeg",
-      },
-      {
-        title: "simba mtaita",
-        img: "img/katuni/simba.jpeg",
-      },
-      {
-        title: "masudi kipanya",
-        img: "img/katuni/masoudi.jpeg",
-      },
-      {
-        title: "kibonzo na jiji",
-        img: "img/katuni/vibonjo.jpeg",
-      },
-        {
-        title: "love for tz",
-        img: "img/katuni/love tz.jpeg",
-      },
-         {
-        title: "madenge",
-        img: "img/katuni/madenge.jpeg",
-      },
-      {
-        title: "maadili social",
-        img: "img/katuni/maadili socialm.jpeg",
-      },
-        {
-        title: "mafuriko",
-        img: "img/katuni/mafuriko.jpeg",
-      },
-    ];
+    this.images
   }
 
   getItems(ev: any) {
@@ -75,7 +53,7 @@ export class HomePage {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.images = this.images.filter((item) => {
-        return ( item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }

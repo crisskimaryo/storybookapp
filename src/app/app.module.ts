@@ -10,6 +10,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 // sub
 import { ToreadPage } from '../pages/book/toread/toread';
 import { ReadPage } from '../pages/book/read/read';
+//services
+import {Data} from '../providers/data';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,6 @@ import { ReadPage } from '../pages/book/read/read';
     ProfilePage,
     TabsPage
   ],
-  providers: []
+  providers: [Data]
 })
 export class AppModule { }
