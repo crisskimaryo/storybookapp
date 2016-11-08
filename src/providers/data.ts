@@ -5,33 +5,26 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class Data {
-  static get parameters() {
-    return [[Http]];
-  }
-  constructor(public http: Http) {
+    static get parameters() {
+        return [[Http]];
+    }
+     likes: any = []
+    constructor(public http: Http) {
 
-  }
+    }
 
-  // getbooks() {
 
-  //   this.http.get('http://127.0.0.1:8000/sb_api1/books/')
-  //     .map(res => res.json())
-  //     .subscribe(data => {
-  //       console.log(data);
-  //     });
 
-  // }
 
-  // getbook() {
 
-  //   this.http.get('http://127.0.0.1:8000/sb_api1/books/')
-  //     .toPromise()
-  //     .then(data => {
-  //       console.log(data);
-  //     });
 
-  // }
+    likeme() {
+    }
+
+    unlikeme() {
+        console.log("unlike")
+    }
+
 
 }
-
 
