@@ -7,6 +7,7 @@ import { ImagePage } from '../pages/image/image';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
+import {PopoverPage} from '../pages/popover/popover'
 // sub
 import { ToreadPage } from '../pages/book/toread/toread';
 import { ReadPage } from '../pages/book/read/read';
@@ -23,6 +24,7 @@ import {Data} from '../providers/data';
     ReadPage,
     HomePage,
     ProfilePage,
+    PopoverPage,
     TabsPage
   ],
   imports: [
@@ -38,6 +40,7 @@ import {Data} from '../providers/data';
     ReadPage,
     HomePage,
     ProfilePage,
+    PopoverPage,
     TabsPage
   ],
   providers: [Data]
