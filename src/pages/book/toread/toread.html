@@ -1,172 +1,119 @@
 <ion-header>
-	<ion-navbar *navbar>
-		<ion-title>
-			Njia Panda
-		</ion-title>
-		<ion-buttons end>
-			<button ion-button icon-only>
+  <ion-navbar *navbar>
+    <ion-title>
+      Njia Panda
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
           <ion-icon name="more"></ion-icon>
         </button>
-		</ion-buttons>
-	</ion-navbar>
+    </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-	<div style="position: relative;  ">
+  <div style="position: relative;  ">
 
-		<ion-img src="img/katuni/ibra.jpeg" style="max-height:150px;"></ion-img>
+    <ion-img [src]="storieslist[0].cover" style="max-height:150px;"></ion-img>
     <!--this div should have the sticky method so that when the content scroll should be in fixed position-->
-		<div style="position: absolute; top:0%; font-size: 2.0em; width: 100%; font-weight: bold; background-color: rgba(255, 255, 255, .5); ">
-			<ion-row>
+    <div style="position: absolute; top:0%; height:100%; font-size: 2.0em; width: 100%; font-weight: bold; background-color: rgba(0, 20, 0, .1); " no-lines>
+      <ion-row>
 
-				<ion-col>
-					<ion-buttons start>
-						<button ion-button clear icon-only (click)="back()">
+        <ion-col>
+          <ion-buttons start>
+            <button ion-button clear icon-only (click)="back()">
           <ion-icon name="arrow-back"></ion-icon>
 
         </button>
-					</ion-buttons>
-				</ion-col>
-				<ion-col>
-					<ion-title>
-						Njia Panda
-					</ion-title>
-				</ion-col>
-				<ion-col>
-					<ion-buttons end>
-						<button ion-button clear icon-only>
+          </ion-buttons>
+        </ion-col>
+        <ion-col>
+          <ion-title  style="color:smokewhite;" >
+           <span style="color:red">{{storieslist[0].title}}</span>
+          </ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-buttons end>
+            <button ion-button clear icon-only>
           <ion-icon name="more"></ion-icon>
         </button>
-					</ion-buttons>
-				</ion-col>
-			</ion-row>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
 
-		</div>
-		<div style="position: absolute; bottom:0%; font-size: 2.0em; width: 100%; font-weight: bold; color:ghostwhite ;  background-color: rgba(255, 255, 255, .5);">
-			<ion-row>
+    </div>
+    <div style="position: absolute; bottom:0%; font-size: 2.0em; width: 100%; font-weight: bold; color:ghostwhite ;  background-color: rgba(255, 255, 255, .5);">
+      <ion-row>
 
-				<ion-col width-50>
-					<ion-buttons start>
-						<button>
+        <ion-col width-50>
+          <ion-buttons start>
+            <button>
       <ion-icon name=""></ion-icon>
             Author
     </button>
-					</ion-buttons>
-				</ion-col>
-				<ion-col width-50>
-					<ion-buttons end>
-						<button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col width-50>
+          <ion-buttons end>
+            <button>
       <ion-icon name="more"></ion-icon>
      Intro
     </button>
-					</ion-buttons>
-				</ion-col>
-			</ion-row>
-			<!--<ion-badge padding style="background:tranparent" favorite item-left>Author</ion-badge>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+      <!--<ion-badge padding style="background:tranparent" favorite item-left>Author</ion-badge>
 			<ion-badge padding  danger  item-left>Description</ion-badge>-->
-		</div>
-	</div>
+    </div>
+  </div>
 
-	<div padding>
-		<ion-segment [(ngModel)]="choosetab">
-			<ion-segment-button value="toread">
+  <div padding>
+    <ion-segment [(ngModel)]="choosetab">
+      <ion-segment-button value="toread">
 
-				<ion-icon name="book" isActive="true"></ion-icon>
-				12 M
-			</ion-segment-button>
-			<ion-segment-button value="comments">
-				<ion-icon name="chatboxes" isActive="false"></ion-icon>
-				2.3 K
-			</ion-segment-button>
-		</ion-segment>
-	</div>
+        <ion-icon name="book" isActive="true"></ion-icon>
+        12 M
+      </ion-segment-button>
+      <ion-segment-button value="comments">
+        <ion-icon name="chatboxes" isActive="false"></ion-icon>
+        2.3 K
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 
-	<div [ngSwitch]="choosetab">
-		<ion-list *ngSwitchCase="'toread'">
+  <div [ngSwitch]="choosetab">
+    <ion-list *ngSwitchCase="'toread'">
 
-			<ion-item-sliding *ngFor="let st of storieslist">
-				<ion-item (click)="read()">
-					<h2> {{st.title}}</h2>
-					<h5> {{st.chapter}}</h5>
-					<ion-note item-right></ion-note>
-				</ion-item>
-				<ion-item-options side="left">
+      <ion-item-sliding *ngFor="let st of storieslist[0].stories">
+        <ion-item (click)="read()">
+          <h2> {{st.sub_title}}</h2>
+          <h5> {{st.chapter}}</h5>
+          <ion-note item-right></ion-note>
+        </ion-item>
+        <ion-item-options side="left">
 
-					<button ion-button favorite outline icon-left large>
+          <button ion-button favorite outline icon-left large>
         <ion-icon  color="favorite"  name="bookmark"></ion-icon>
 
       </button>
-					<button ion-button favorite outline icon-left large>
+          <button ion-button favorite outline icon-left large>
         <ion-icon  name="download"  color="danger"></ion-icon>
 
       </button>
-				</ion-item-options>
-				<ion-item-options side="right">
-					<button ion-button favorite large icon-left>
+        </ion-item-options>
+        <ion-item-options side="right">
+          <button ion-button favorite large icon-left>
         <ion-icon name="more"></ion-icon>
 
       </button>
-				</ion-item-options>
-			</ion-item-sliding>
+        </ion-item-options>
+      </ion-item-sliding>
 
-		</ion-list>
+    </ion-list>
 
-		<ion-list *ngSwitchCase="'comments'">
+    <ion-list *ngSwitchCase="'comments'">
 
-		</ion-list>
-
-		<ion-list *ngSwitchDefault>
-
-			<ion-item-sliding *ngFor="let st of storieslist">
-				<ion-item (click)="read()">
-					<h2> {{st.title}}</h2>
-					<h5> {{st.chapter}}</h5>
-					<ion-note item-right></ion-note>
-				</ion-item>
-				<ion-item-options side="left">
-
-					<button ion-button favorite outline icon-left large>
-        <ion-icon  color="favorite"  name="bookmark"></ion-icon>
-
-      </button>
-					<button ion-button favorite outline icon-left large>
-        <ion-icon  name="download"  color="danger"></ion-icon>
-
-      </button>
-				</ion-item-options>
-				<ion-item-options side="right">
-					<button ion-button favorite large icon-left>
-        <ion-icon name="more"></ion-icon>
-
-      </button>
-				</ion-item-options>
-			</ion-item-sliding>
-
-		</ion-list>
-	</div>
-
-	<!--<ion-item-sliding *ngFor="let st of storieslist">
-				<ion-item (click)="read()">
-					<h2> {{st.title}}</h2>
-					<h5> {{st.chapter}}</h5>
-					<ion-note item-right>3:43 pm</ion-note>
-				</ion-item>
-				<ion-item-options side="left">
-					<button primary>
-        <ion-icon name="bookmark"></ion-icon>
-        bookmark
-      </button>
-					<button secondary>
-        <ion-icon name="call"></ion-icon>
-        something
-      </button>
-				</ion-item-options>
-				<ion-item-options side="right">
-					<button primary>
-        <ion-icon name="mail"></ion-icon>
-        something
-      </button>
-				</ion-item-options>
-			</ion-item-sliding>-->
+    </ion-list>
+  </div>
 </ion-content>

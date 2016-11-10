@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component , ViewChild } from '@angular/core';
+import { NavController, List } from 'ionic-angular';
 import { ToreadPage } from '../book/toread/toread';
 
 @Component({
@@ -7,16 +7,16 @@ import { ToreadPage } from '../book/toread/toread';
   templateUrl: 'book.html'
 })
 export class BookPage {
-
+ @ViewChild('scheduleList', {read: List}) scheduleList: List;
   images: any[];
 
 
   searchQuery: string = '';
 
-  choosebook: any;
+  choosebook='all';
   constructor(public navCtrl: NavController) {
     this.initializedata();
-    this.choosebook = "book"
+    this.choosebook = "All"
   }
 
   initializedata() {

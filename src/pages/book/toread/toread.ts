@@ -1,49 +1,22 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController ,NavParams} from 'ionic-angular';
 import { ReadPage } from '../read/read';
 @Component({
   selector: 'page-toread',
   templateUrl: 'toread.html'
 })
 export class ToreadPage {
-  storieslist: any = [
-    {
-      title: "mama ni mama",
-      chapter: "sehemu ya 1",
-    },
-    {
-      title: "utamu wa pesa",
-      chapter: "sehemu ya 2",
-    },
-    {
-      title: "sitaki nataka",
-      chapter: "sehemu ya 3",
-    },
-    {
-      title: "nipe yeto",
-      chapter: "sehemu ya 4",
-    },
-    {
-      title: "sikio lakufa",
-      chapter: "sehemu ya 5",
-    },
-    {
-      title: "nipe nikupe",
-      chapter: "sehemu ya 5",
-    },
-    {
-      title: "pale kati ....",
-      chapter: "sehemu ya 5",
-    },
-  ];
+
+  storieslist: any ;
   choosetab: any;
-  constructor(public navCtrl: NavController) {
-    console.log("hey toread")
-    this.choosetab = "book"
+  constructor(public navCtrl: NavController,params:NavParams) {
+    this.storieslist=params.get("data")
+
+    this.choosetab = "toread"
   }
 
   read() {
-    this.navCtrl.push(ReadPage);
+    this.navCtrl.push(ReadPage,{reads:this.storieslist[0]});
   }
    back() {
     this.navCtrl.pop();

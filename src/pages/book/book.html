@@ -1,132 +1,132 @@
 <ion-header>
-	<ion-navbar>
-		<!--<ion-title>
+  <ion-navbar>
+    <!--<ion-title>
 			book
 		</ion-title>-->
-		<ion-segment [(ngModel)]="choosebook">
-			<ion-segment-button value="All">
-				All
-			</ion-segment-button>
-			<ion-segment-button value="series">
-				series
-			</ion-segment-button>
-			<ion-segment-button value="Short">
-				Short
-			</ion-segment-button>
-		</ion-segment>
-	</ion-navbar>
+    <ion-segment [(ngModel)]="choosebook">
+      <ion-segment-button value="All">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="series">
+        series
+      </ion-segment-button>
+      <ion-segment-button value="Short">
+        Short
+      </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-	<!--<ion-toolbar>
+  <!--<ion-toolbar>
 
 
 	</ion-toolbar>-->
-	<div>
-		<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-	</div>
+  <div>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </div>
 
-	<div [ngSwitch]="choosebook">
-		<ion-list *ngSwitchCase="'All'">
-			<ion-list no-lines>
-				<ion-list-header>
-					Popular Stories
-				</ion-list-header>
-				<div style="padding:1px;">
-					<ion-row wrap>
-						<ion-col width-50 style="width:100%;  padding:0px;padding-left:1px; padding-bottom:4px;" *ngFor="let img of images">
-							<div style="position: relative; height:100%; padding:0px; width:100%;">
-								<span (click)="navstry()">
+  <div [ngSwitch]="choosebook">
+    <ion-list #scheduleList *ngSwitchCase="'All'">
+      <ion-list no-lines>
+        <ion-list-header>
+          Popular Stories
+        </ion-list-header>
+        <div style="padding:1px;">
+          <ion-row wrap>
+            <ion-col width-50 style="width:100%;  padding:0px;padding-left:1px; padding-bottom:4px;" *ngFor="let img of images">
+              <div style="position: relative; height:100%; padding:0px; width:100%;">
+                <span (click)="navstry()">
                 <ion-item-divider light style="color:lightgray;background-color:whitesmoke; " >
 								{{img.title}}
 							</ion-item-divider>
 
 							<ion-img [src]="img.img" height="160px" width="100%" ></ion-img></span>
-								<div style="top:65%;  width:100%; background: #dddfe2;  ">
-									<ion-row color="danger">
-										<ion-col width-33>
-											<button ion-button color="favorite" clear small icon-left>
+                <div style="top:65%;  width:100%; background: #dddfe2;  ">
+                  <ion-row color="danger">
+                    <ion-col width-33>
+                      <button ion-button color="favorite" clear small icon-left>
         <ion-icon  name='eye'></ion-icon>
         12 k
       </button>
-										</ion-col>
+                    </ion-col>
 
-										<ion-col width-33>
-											<button ion-button color="danger" clear small icon-left>
+                    <ion-col width-33>
+                      <button ion-button color="danger" clear small icon-left>
         <ion-icon name='heart'></ion-icon>
         4 m
       </button>
-										</ion-col>
+                    </ion-col>
 
-									</ion-row>
-								</div>
-							</div>
-						</ion-col>
-					</ion-row>
+                  </ion-row>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
 
-				</div>
+        </div>
 
-			</ion-list>
+      </ion-list>
 
 
-		</ion-list>
+    </ion-list>
 
-		<ion-list *ngSwitchCase="'series'">
+    <ion-list *ngSwitchCase="'series'">
 
-		</ion-list>
+    </ion-list>
 
-		<ion-list *ngSwitchDefault no-lines>
-			<ion-list-header>
-				Popular Stories
-			</ion-list-header>
-			<div>
-				<ion-item padding *ngFor="let img of images">
-					<div style="position: relative; height:100%; padding:0px; width:100%;">
-						<span (click)="navstry()">
+    <ion-list *ngSwitchCase="'Short'" no-lines>
+      <ion-list-header>
+        Popular Stories
+      </ion-list-header>
+      <div>
+        <ion-item padding *ngFor="let img of images">
+          <div style="position: relative; height:100%; padding:0px; width:100%;">
+            <span (click)="navstry()">
                 <ion-item-divider light style="color:lightgray;background-color:whitesmoke; " >
 								{{img.title}}
 							</ion-item-divider>
 
-							<ion-img [src]="img.img" width="100%" ></ion-img></span>
-						<div style="top:65%;  width:100%; background: #dddfe2;  ">
-							<ion-row color="danger">
-								<ion-col width-33>
-									<button ion-button color="danger" clear small icon-left>
+							<ion-img [src]="img.img" width="100%" style="max-height:200px;"></ion-img></span>
+            <div style="top:65%;  width:100%; background: #dddfe2;  ">
+              <ion-row color="danger">
+                <ion-col width-33>
+                  <button ion-button color="danger" clear small icon-left>
         <ion-icon  name='eye'></ion-icon>
-        12 k
+        7 k
       </button>
-								</ion-col>
+                </ion-col>
 
-								<ion-col width-33>
-									<button ion-button color="danger" clear small icon-left>
+                <ion-col width-33>
+                  <button ion-button color="danger" clear small icon-left>
         <ion-icon name='heart'></ion-icon>
         4 m
       </button>
-								</ion-col>
+                </ion-col>
 
-							</ion-row>
-						</div>
-					</div>
-				</ion-item>
+              </ion-row>
+            </div>
+          </div>
+        </ion-item>
 
 
-			</div>
+      </div>
 
-		</ion-list>
+    </ion-list>
 
-		<ion-card>
-			<ion-card-content>
-				<ion-img src="img/katuni/vibonjo.jpeg"></ion-img>
-			</ion-card-content>
+    <ion-card>
+      <ion-card-content>
+        <ion-img src="img/katuni/vibonjo.jpeg"></ion-img>
+      </ion-card-content>
 
-			<ion-item>
-				<button ion-button clear item-left>Like</button>
-				<button ion-button clear item-right>Comment</button>
-			</ion-item>
-		</ion-card>
+      <ion-item>
+        <button ion-button clear item-left>Like</button>
+        <button ion-button clear item-right>Comment</button>
+      </ion-item>
+    </ion-card>
 
-	</div>
+  </div>
 
 
 

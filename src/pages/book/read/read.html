@@ -45,9 +45,9 @@
 <ion-content padding>
 
 	<ion-slides>
-		<ion-slide *ngFor="let item of readstorieslist">
+		<ion-slide *ngFor="let item of readstorieslist.stories" on-slide-changed="slideHasChanged(index)">
 			<div padding-top padding-buttom style="height:100p%;width:100%; text-align:justify;">
-				<b><p  [innerHTML]="item.title"></p></b>
+				<b><p  [innerHTML]="item.sub_title"></p></b>
 				<p style=" text-indent:40px;line-height: 1.5;" [innerHTML]="item.content"></p>
 			</div>
 		</ion-slide>
