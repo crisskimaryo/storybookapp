@@ -1,28 +1,26 @@
 <ion-header>
-  <ion-navbar>
-    <!--<ion-title>
-			book
-		</ion-title>-->
-    <ion-segment [(ngModel)]="choosebook">
-      <ion-segment-button value="All">
-        All
-      </ion-segment-button>
-      <ion-segment-button value="series">
-        series
-      </ion-segment-button>
-      <ion-segment-button value="Short">
-        Short
-      </ion-segment-button>
-    </ion-segment>
-  </ion-navbar>
+  <!--<ion-navbar>
+    <ion-title>
+			books
+		</ion-title>
+  </ion-navbar>-->
+<ion-toolbar position="buttom">
+  <ion-segment [(ngModel)]="choosebook">
+    <ion-segment-button value="All">
+      All
+    </ion-segment-button>
+    <ion-segment-button value="series">
+      series
+    </ion-segment-button>
+    <ion-segment-button value="Short">
+      Short
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <!--<ion-toolbar>
-
-
-	</ion-toolbar>-->
   <div>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   </div>

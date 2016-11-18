@@ -11,8 +11,27 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Book {
 
-  constructor(public http: Http) {
+  constructor(private http: Http) {
     console.log('Hello Book Provider');
+  }
+
+  books() {
+     this.http.get('assets/mocks/offlinedata.json')
+      .map(res => res.json())
+      .subscribe(
+         data => {
+
+                console.log(data)
+            },
+            err => {
+
+                console.log(err);
+            },
+            () => {
+
+            }
+      )
+
   }
 
 }

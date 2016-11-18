@@ -76,12 +76,12 @@
     <ion-segment [(ngModel)]="choosetab">
       <ion-segment-button value="toread">
 
-        <ion-icon name="book" isActive="true"></ion-icon>
-        12 M
+        <ion-icon name="musical-notes" isActive="true"></ion-icon>
+        12
       </ion-segment-button>
       <ion-segment-button value="comments">
         <ion-icon name="chatboxes" isActive="false"></ion-icon>
-        2.3 K
+        247
       </ion-segment-button>
     </ion-segment>
   </div>
@@ -97,11 +97,15 @@
         <ion-note>comming soon, follow the stories for updates notifications</ion-note>
       </ion-item>
       <ion-item-sliding *ngFor="let st of storieslist[0].stories">
-        <ion-item (click)="read(st)">
+        <ion-item (click)="playme()">
+          <ion-avatar item-left>
+            <img src="img/play-button.png">
+          </ion-avatar>
           <h2> {{st.sub_title}}</h2>
           <h5> {{st.chapter}}</h5>
           <ion-note item-right></ion-note>
         </ion-item>
+
 
         <ion-item-options side="left">
 
