@@ -29,7 +29,7 @@ export class ToreadPage {
 
     read(st) {
 
-        this.navCtrl.push(ReadPage, { reads: this.storieslist[0],st:st });
+        this.navCtrl.push(ReadPage, { reads: this.storieslist[0],st:st.id });
     }
     back() {
         this.navCtrl.pop();

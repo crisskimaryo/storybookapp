@@ -11,5 +11,17 @@ export class PlayerPage {
 
   }
 
+//for future this should be change is not the better solution
+  back() {
+    this.navCtrl.pop()
+  }
+
+  swipe() {
+
+    this.navCtrl.pop()
+
+  }
+
+
 
 }

@@ -1,21 +1,63 @@
-<ion-header>
-  <ion-navbar>
-    <ion-buttons start>
-      <button ion-button icon-only>
-        <ion-icon name="contact"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title>
-     player
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content style=" background-color: rgba(0, 0, 0, .8);" (swipe)="swipe($event)">
+    <ion-list no-lines>
+                <div style="position: relative; ">
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>popular images</ion-list-header>
-    <ion-item>
-      list here
-    </ion-item>
-  </ion-list>
+    <ion-img src="img/katuni/magu.jpeg" style="max-height:150px;"></ion-img>
+    <div style="position: absolute; top:0%; height:100%; font-size: 2.0em; width: 100%; font-weight: bold; background-color: rgba(0, 20, 0, .9); "
+      no-lines>
+      <ion-row>
+
+        <ion-col>
+          <ion-buttons start>
+            <button ion-button clear icon-only (click)="back()">
+          <ion-icon name="arrow-back"></ion-icon>
+
+        </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col>
+          <ion-title style="color:smokewhite;">
+            <span style="color:whitesmoke"></span>
+          </ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-buttons end>
+            <button ion-button clear icon-only>
+          <ion-icon name="bookmark"></ion-icon>
+        </button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+
+    </div>
+    <div style="position: absolute; bottom:0%;  width: 100%; font-weight: bold; color:ghostwhite ;  background-color: rgba(255, 255, 255, .5);">
+      <ion-row>
+
+        <ion-col width-50>
+          <ion-buttons start>
+
+            <button ion-button small clear >
+
+         <span style="padding:3px; background:whitesmoke;" ><ion-icon name="person"></ion-icon></span>
+
+    </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col width-50>
+          <ion-buttons end>
+            <button ion-button small clear>
+      <ion-icon name="more"></ion-icon>
+      <span style="padding:3px; background:whitesmoke;" > Intro</span>
+
+    </button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </div>
+
+
+    </ion-list>
+
 </ion-content>

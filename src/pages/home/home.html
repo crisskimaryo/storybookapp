@@ -163,8 +163,9 @@
   </ion-list>
 
 </ion-content>
-<ion-footer style="position: absolute; width:100%;" (swipe)="swipe($event)" *ngIf="played">
-  <ion-item>
+<!--this is ok but for it to be visible the binding should be checked /consided since it only check when the page is called-->
+<ion-footer class="player" style=" position: absolute; width:100%;" (swipe)="swipe($event)" *ngIf="played">
+  <ion-item style="background:coral;padding:0px; margin:0px;">
     <ion-avatar item-left>
       <button small ion-button clear (click)="listenplay(lis)">
         <img src="img/play-button.png">
