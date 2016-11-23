@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ListenPage } from '../pages/listen/listen';
-import { PlayerPage } from '../pages/listen/player/player';
+// import { PlayerPage } from '../pages/listen/player/player';
 import { BookPage } from '../pages/book/book';
 import { ImagePage } from '../pages/image/image';
 import { HomePage } from '../pages/home/home';
@@ -22,7 +22,7 @@ import { Book } from '../providers/book';
     MyApp,
     ListenPage,
     TolistenPage,
-    PlayerPage,
+    // PlayerPage,
     ImagePage,
     BookPage,
     ToreadPage,
@@ -56,7 +56,7 @@ import { Book } from '../providers/book';
     MyApp,
     ListenPage,
     TolistenPage,
-    PlayerPage,
+    // PlayerPage,
     ImagePage,
     BookPage,
     ToreadPage,

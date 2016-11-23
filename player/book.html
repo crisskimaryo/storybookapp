@@ -1,5 +1,7 @@
 <ion-header>
-   <ion-toolbar position="buttom">
+
+
+  <ion-toolbar position="buttom">
     <ion-segment [(ngModel)]="choosebook">
       <ion-segment-button value="All">
         All
@@ -13,7 +15,6 @@
     </ion-segment>
   </ion-toolbar>
 </ion-header>
-
 
 <ion-content>
 
@@ -132,7 +133,7 @@
       </ion-avatar>
       <h2> my life}</h2>
       <h5> 00:30:34</h5>
-      <ion-range>
+      <ion-range [(ngModel)]="brightness">
         <ion-icon range-left small name="rewind"></ion-icon>
         <ion-icon range-left small name="fastforward"></ion-icon>
         <ion-icon range-right name="pause"></ion-icon>

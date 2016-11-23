@@ -1,30 +1,24 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
 
 @Component({
   selector: 'page-read',
   templateUrl: 'read.html'
 })
-export class ReadPage {
+export class ReadPage implements OnInit {
   @ViewChild('storySlider') slider: Slides;
   readstorieslist: any;
   chapter: any;
 
   slideindex: number;
   storySlide: any;
+  // this code is very slow i think there is need for code optimization
+  constructor(public navCtrl: NavController, public params: NavParams) {
+    this.params = params
 
-
-
-// this code is very slow i think there is need for code optimization
-  constructor(public navCtrl: NavController, params: NavParams) {
-    this.readstorieslist = params.get("reads")
-    this.slideindex = params.get("st")
-    this.storySlide = {
-      initialSlide: this.slideindex -1
-      // ,loop: true
-    };
     console.log(this.slideindex);
   }
+
   slideHasChanged(index) {
 
     console.log("slide " + index + "" + "changed")
@@ -33,6 +27,16 @@ export class ReadPage {
     this.navCtrl.pop(ReadPage)
   }
 
+  ngOnInit() {
+    console.log("will enter")
+    this.readstorieslist = this.params.get("reads")
+    this.slideindex = this.params.get("st")
+    console.log(this.slideindex + " " + this.readstorieslist)
+    this.storySlide = {
+      initialSlide: this.slideindex - 1
+      // ,loop: true
+    };
+  }
 
 
 }

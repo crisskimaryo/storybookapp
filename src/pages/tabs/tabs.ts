@@ -5,7 +5,6 @@ import { BookPage } from '../book/book';
 import { ImagePage } from '../image/image';
 import { ProfilePage } from '../profile/profile';
 
-
 @Component({
   templateUrl: 'tabs.html'
 })

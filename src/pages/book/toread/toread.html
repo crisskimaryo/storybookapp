@@ -1,26 +1,11 @@
-<ion-header>
-  <ion-navbar *navbar>
-    <ion-title>
-      Njia Panda
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only>
-          <ion-icon name="more"></ion-icon>
-        </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
 
 <ion-content>
-
   <div style="position: relative;  ">
-
     <ion-img [src]="storieslist[0].cover" style="max-height:150px;"></ion-img>
     <!--this div should have the sticky method so that when the content scroll should be in fixed position-->
     <div style="position: absolute; top:0%; height:100%; font-size: 2.0em; width: 100%; font-weight: bold; background-color: rgba(0, 20, 0, .1); "
       no-lines>
       <ion-row>
-
         <ion-col>
           <ion-buttons start>
             <button ion-button clear icon-only (click)="back()">

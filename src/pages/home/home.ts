@@ -4,7 +4,7 @@ import { ToreadPage } from '../book/toread/toread';
 import { TolistenPage } from '../listen/tolisten/tolisten';
 import { Data } from '../../providers/data'
 import { Http } from '@angular/http';
-import { PlayerPage } from '../listen/player/player'
+// import { PlayerPage } from '../listen/player/player'
 
 
 @Component({
@@ -148,8 +148,8 @@ export class HomePage {
 // DIRECTION_ALL          30
 
     swipe(e) {
-        let modal = this.modalCtrl.create(PlayerPage);
-        modal.present();
+        // let modal = this.modalCtrl.create(PlayerPage);
+        // modal.present();
         this.played = false;
         console.log("swiped")
         if (e.direction == 8) {
