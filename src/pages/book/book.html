@@ -29,10 +29,10 @@
         </ion-list-header>
         <div style="padding:1px;">
           <ion-row wrap>
-            <ion-col width-50 style="width:100%;  padding:0px;padding-left:1px; padding-bottom:4px;" *ngFor="let img of images">
+            <ion-col width-50 style="width:100%;  padding:0px;padding-left:1px; padding-bottom:4px;" *ngFor="let img of bkdata">
               <div style="position: relative; height:100%; padding:0px; width:100%;">
                 <span (click)="navstry()">
-                <ion-item-divider light style="color:lightgray;background-color:whitesmoke; " >
+                <ion-item-divider  style="color:lightgray;background-color:whitesmoke; " >
 								{{img.title}}
 							</ion-item-divider>
 
@@ -75,14 +75,14 @@
         Popular Stories
       </ion-list-header>
       <div>
-        <ion-item padding *ngFor="let img of images">
+        <ion-item padding *ngFor="let bk of  bkdata">
           <div style="position: relative; height:100%; padding:0px; width:100%;">
             <span (click)="navstry()">
-                <ion-item-divider light style="color:lightgray;background-color:whitesmoke; " >
-								{{img.title}}
+                <ion-item-divider light style="color:9e715f;background-color:whitesmoke; " >
+								{{bk.title}}
 							</ion-item-divider>
 
-							<ion-img [src]="img.img" width="100%" style="max-height:200px;"></ion-img></span>
+							<ion-img [src]="bk.img" width="100%" style="max-height:200px;"></ion-img></span>
             <div style="top:65%;  width:100%; background: #dddfe2;  ">
               <ion-row color="danger">
                 <ion-col width-33>

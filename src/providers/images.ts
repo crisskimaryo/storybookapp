@@ -2,17 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the Images provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class Images {
 
-  constructor(public http: Http) {
-    console.log('Hello Images Provider');
+  constructor(public http: Http) { }
+
+  Image() {
+    return this.http.get('assets/mocks/booksdata.json')
+      .map(res => res.json())
   }
+
 
 }

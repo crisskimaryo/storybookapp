@@ -2,36 +2,22 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the Book provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class Book {
 
-  constructor(private http: Http) {
-    console.log('Hello Book Provider');
-  }
+    constructor(private http: Http) { }
+    books() {
+        return this.http.get('assets/mocks/booksdata.json')
+            .map(res => res.json())
+    }
 
-  books() {
-     this.http.get('assets/mocks/offlinedata.json')
-      .map(res => res.json())
-      .subscribe(
-         data => {
+    homedata() {
+        return this.http.get('http://crisskimaryo.pythonanywhere.com/sb_api1/books/')
+            .map(res => res.json())
+    }
 
-                console.log(data)
-            },
-            err => {
-
-                console.log(err);
-            },
-            () => {
-
-            }
-      )
-
-  }
-
+    offlinedata() {
+        return this.http.get('assets/mocks/offlinedata.json')
+            .map(res => res.json())
+    }
 }

@@ -1,29 +1,35 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToreadPage } from '../book/toread/toread';
+import {Book} from '../../providers/book'
 
 @Component({
     selector: 'page-book',
     templateUrl: 'book.html'
 })
 export class BookPage {
-    images: any;
+    bkdata: Array<any>;
     searchQuery: string;
 
     choosebook: string;
-    constructor(public navCtrl: NavController) { }
+    constructor(public navCtrl: NavController, public _books:Book) { }
 
     ionViewDidLoad() {
-        console.log('Hello BookPage Page');
+
         this.initializedata();
         this.choosebook = "All"
     }
     //this should load from server
     initializedata() {
-        this.images = [];
+        return this._books.books()
+        .subscribe(
+          data=>{
+            this.bkdata=data
+            console.log(this.bkdata);
+           }
+
+        )
     }
-
-
 
     getItems(ev:any) {
         // Reset items back to all of the items
@@ -34,7 +40,7 @@ export class BookPage {
 
         // if the value is an empty string don't filter the items
         if (val && val.trim() != '') {
-            this.images = this.images.filter((item) => {
+            this. bkdata = this. bkdata.filter((item) => {
                 return (item.title.toLowerCase().indexOf(val.toLowerCase()) > -1);
             })
         }

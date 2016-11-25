@@ -6,16 +6,39 @@
       </button>
     </ion-buttons>
     <ion-title>
-     image
+      image
     </ion-title>
+
   </ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="choosest">
+
+      <ion-segment-button value="series">
+        series
+      </ion-segment-button>
+      <ion-segment-button value="Short">
+        Short
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-list-header>popular images</ion-list-header>
-    <ion-item>
-      list here
+    <ion-item *ngFor="let dt of imgdata">
+      <ion-card style="position: relative; text-align: center;">
+
+        <ion-img [src]="dt.img" (click)="imgview(dt)"></ion-img>
+        <div style="position: absolute; top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff;">{{dt.title}}</div>
+        <div class="font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff;"></div>
+
+
+        <ion-item>
+          <button ion-button clear item-left>Like</button>
+          <button ion-button clear item-right>Comment</button>
+        </ion-item>
+      </ion-card>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ListenPage } from '../pages/listen/listen';
-// import { PlayerPage } from '../pages/listen/player/player';
+
 import { BookPage } from '../pages/book/book';
 import { ImagePage } from '../pages/image/image';
 import { HomePage } from '../pages/home/home';
@@ -16,13 +16,18 @@ import { ReadPage } from '../pages/book/read/read';
 //services
 import { Data } from '../providers/data';
 import { Book } from '../providers/book';
+import { Images } from '../providers/images';
+import { Listen } from '../providers/listen';
+//component
+import { PlayerComponent } from '../components/player/player'
+import { ImageviewComponent } from '../components/imageview/imageview'
 
 @NgModule({
   declarations: [
     MyApp,
     ListenPage,
     TolistenPage,
-    // PlayerPage,
+
     ImagePage,
     BookPage,
     ToreadPage,
@@ -30,33 +35,36 @@ import { Book } from '../providers/book';
     HomePage,
     ProfilePage,
     PopoverPage,
-    TabsPage
+    TabsPage,
+    //components
+    PlayerComponent,
+    ImageviewComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp,
-    {
-      //custumize the tab look
-// tabsPlacement: 'bottom',
-//   platforms: {
-//     android: {
-//       tabsPlacement: 'top'
-//     },
-//     ios: {
-//       tabsPlacement: 'top'
-//     },
-//     windows:
-//     {
-//       tabsPlacement: 'top'
-//     }
-//   }
-})
+      {
+        //custumize the tab look
+        // tabsPlacement: 'bottom',
+        //   platforms: {
+        //     android: {
+        //       tabsPlacement: 'top'
+        //     },
+        //     ios: {
+        //       tabsPlacement: 'top'
+        //     },
+        //     windows:
+        //     {
+        //       tabsPlacement: 'top'
+        //     }
+        //   }
+      })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     ListenPage,
     TolistenPage,
-    // PlayerPage,
+
     ImagePage,
     BookPage,
     ToreadPage,
@@ -64,8 +72,12 @@ import { Book } from '../providers/book';
     HomePage,
     ProfilePage,
     PopoverPage,
-    TabsPage
+    TabsPage,
+    //component
+    PlayerComponent,
+    ImageviewComponent
   ],
-  providers: [Data, Book]
+
+  providers: [Data, Book, Images, Listen]
 })
 export class AppModule { }

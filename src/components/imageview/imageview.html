@@ -1,0 +1,31 @@
+<ion-content  style=" background-color: rgba(0, 0, 0, .8);" >
+  <div (swipe)="swipe($event)">
+    <ion-buttons  start>
+      <button clear ion-button color=orange (click)="closebt()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </div>
+
+  <ion-item>
+    <div color=light>{{imgs.title}}</div>
+  </ion-item>
+  <ion-img [src]="imgs.img"></ion-img>
+
+  <ion-item>
+    <button ion-button clear item-left>Like</button>
+    <button ion-button clear item-right>Comment</button>
+  </ion-item>
+
+  <ion-footer>
+    <ion-slides pager [options]="features">
+      <ion-slide style="max-height:150px;padding-right:3px;" *ngFor="let img of imglist">
+        <ion-col>
+          <ion-img [src]="img.img" height="80px" width="100%"></ion-img>
+        </ion-col>
+
+      </ion-slide>
+
+    </ion-slides>
+  </ion-footer>
+</ion-content>
