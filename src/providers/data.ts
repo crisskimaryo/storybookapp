@@ -1,30 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class Data {
-    static get parameters() {
-        return [[Http]];
-    }
-     likes: any = []
-    constructor(public http: Http) {
 
-    }
-
-
-
-
-
-
-    likeme() {
-    }
-
-    unlikeme() {
-        console.log("unlike")
-    }
+  constructor(public http: Http) { }
+// call proposed books
+  propbooks() {
+    return this.http.get('assets/mocks/booksdata.json')
+      .map(res => res.json())
+  }
 
 
 }
-

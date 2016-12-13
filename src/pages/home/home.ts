@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, NavParams, ModalController } from 'ionic-angular';
+import {SearchPage} from '../search/search'
 import { ToreadPage } from '../book/toread/toread';
 import { TolistenPage } from '../listen/tolisten/tolisten';
 import { Data } from '../../providers/data'
@@ -22,6 +23,7 @@ export class HomePage {
   //temporary object for search data retrieve on null
   im: any;
   searchQuery: string = '';
+  features:any;
   constructor(
     private modalCtrl: ModalController,
     public navCtrl: NavController,
@@ -34,6 +36,10 @@ export class HomePage {
   ) {
 
     this.played = false;
+    this.features = {
+      slidesPerView: 2.3
+
+    }
 
   }
 
@@ -176,9 +182,12 @@ export class HomePage {
       img.n_likes++;
 
     }
-
-
-
   }
 
+
+
+searchnav(){
+  let modal =this.modalCtrl.create(SearchPage)
+  modal.present()
+}
 }

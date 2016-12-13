@@ -13,7 +13,7 @@ export class ImagePage {
   imgdata: Array<any>;
   choosest: any;
   imgdt: any;
-
+features:any;
   constructor(
     public navCtrl: NavController,
     public imagesServise: Images,
@@ -21,6 +21,10 @@ export class ImagePage {
     public params: NavParams
   ) {
     this.choosest = "series"
+    this.features = {
+      slidesPerView: 2.5,
+      paginationClickable: true
+    }
   }
 
   ionViewDidLoad() {
@@ -31,7 +35,7 @@ export class ImagePage {
 
   imgview(dt) {
 
-    let modal = this.modalctrl.create(ImageviewComponent,{data:dt,imgdata:this.imgdata})
+    let modal = this.modalctrl.create(ImageviewComponent, { data: dt, imgdata: this.imgdata })
     modal.present()
   }
 }

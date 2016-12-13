@@ -1,10 +1,21 @@
-<ion-content  style=" background-color: rgba(0, 0, 0, .8);" >
+<ion-content style=" background-color: rgba(0, 0, 0, .8);">
   <div (swipe)="swipe($event)">
-    <ion-buttons  start>
-      <button clear ion-button color=orange (click)="closebt()">
+    <ion-row>
+      <ion-col>
+        <ion-buttons start>
+          <button clear ion-button color=orange (click)="closebt()">
         <ion-icon name="close"></ion-icon>
       </button>
-    </ion-buttons>
+        </ion-buttons>
+      </ion-col>
+      <ion-col>
+        <ion-buttons end>
+          <button clear ion-button icon-left color=orange>
+        <span padding-right style="font:10px;">by masudi</span> <ion-icon name="person"></ion-icon>
+      </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
   </div>
 
   <ion-item>

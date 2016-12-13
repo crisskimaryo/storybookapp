@@ -1,4 +1,3 @@
-
 <ion-content>
   <div style="position: relative;  ">
     <ion-img [src]="storieslist[0].cover" style="max-height:150px;"></ion-img>
@@ -44,7 +43,7 @@
         </ion-col>
         <ion-col width-50>
           <ion-buttons end>
-            <button ion-button small clear>
+            <button ion-button small clear (click)="introview()">
       <ion-icon name="more"></ion-icon>
       <span style="padding:3px; background:whitesmoke;" > Intro</span>
 
@@ -65,7 +64,7 @@
         12 M
       </ion-segment-button>
       <ion-segment-button value="comments">
-        <ion-icon name="chatboxes" isActive="false"></ion-icon>
+        <ion-icon name="chatboxes" (click)="intro()" isActive="false"></ion-icon>
         2.3 K
       </ion-segment-button>
     </ion-segment>
@@ -113,4 +112,19 @@
 
     </ion-list>
   </div>
+  <ion-footer padding color=light>
+    <span>Other Also Likes This:</span>
+    <!--<span>Other By author:</span>-->
+    <ion-slides pager [options]="features">
+
+      <ion-slide style="max-height:150px;padding-right:3px;" *ngFor="let img of propdatas">
+        <ion-col>
+          <ion-img [src]="img.img" height="80px" width="100%"></ion-img>
+        </ion-col>
+
+      </ion-slide>
+
+    </ion-slides>
+  </ion-footer>
+
 </ion-content>

@@ -1,5 +1,5 @@
-<ion-header >
-  <ion-navbar >
+<ion-header>
+  <ion-navbar>
     <ion-buttons start>
       <button ion-button icon-only>
           <ion-icon name="person-add"></ion-icon>
@@ -7,8 +7,8 @@
     </ion-buttons>
     <ion-title>storybook</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
-          <ion-icon name="settings"></ion-icon>
+      <button ion-button icon-only (click)="searchnav()">
+          <ion-icon ios="ios-search" md="md-search"></ion-icon>
         </button>
     </ion-buttons>
 
@@ -17,16 +17,16 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content style="background:#dddfe2">
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list *ngIf="images">
-    <ion-list-header style="text-align: center;">
+    <ion-list-header>
       Popular Stories
     </ion-list-header>
-    <ion-slides pager>
+    <ion-slides pager [options]="features">
       <ion-slide *ngFor="let j of images">
         <ion-card>
-          <ion-img [src]="j.cover" style=" width:80%;max-height:150px;"></ion-img>
+          <ion-img [src]="j.cover" style=" width:100%;max-height:150px;"></ion-img>
         </ion-card>
       </ion-slide>
     </ion-slides>
@@ -34,12 +34,11 @@
 
   <ion-list no-lines *ngIf="images" padding-bottom>
     <ion-list-header>
-      Popular Stories
+      Popular Story Books<span style="float:right;"><ion-note>more ..</ion-note></span>
     </ion-list-header>
     <div style="padding:1px;">
       <ion-row wrap>
-        <ion-col width-50 style="background:whitesmoke;width:100%; min-height:150px; padding:0px;padding-left:1px; padding-bottom:2px;"
-          *ngFor="let img of images">
+        <ion-col width-33 style="background:whitesmoke; min-height:150px; padding:0px;padding-left:1px; padding-bottom:2px;" *ngFor="let img of images">
           <div style="position: relative; height:100%; padding:0px; width:100%;">
             <div style="position: absolute; top:0%; height:100%;  width:100%; background-color: rgba(0, 0, 0, .5); ">
               <div style="position: absolute; top:0%; height:50%;  width:100%; color:ghostwhite; padding:5px;" (click)="navstry(img)">
@@ -79,8 +78,8 @@
 
 
   <ion-list no-lines *ngIf="images" padding-bottom>
-    <ion-list-header style="text-align: center;">
-      Trending Listen Stories
+    <ion-list-header>
+      Trending Listen Stories<span style="float:right;"><ion-note>more ..</ion-note></span>
     </ion-list-header>
     <div style="padding:1px;">
       <ion-row wrap>
@@ -132,7 +131,7 @@
     </div>
   </ion-list>
   <ion-list padding-bottom>
-    <ion-list-header style="text-align: center;">
+    <ion-list-header>
       short listens Stories<span style="float:right;"><ion-note>more ..</ion-note></span>
     </ion-list-header>
     <ion-item *ngFor="let lis of listens">
@@ -165,7 +164,7 @@
 </ion-content>
 <!--this is ok but for it to be visible the binding should be checked /consided since it only check when the page is called-->
 <ion-footer class="player" style=" position: absolute; width:100%;" (swipe)="swipe($event)" *ngIf="played">
-  <ion-item style="background:coral;padding:0px; margin:0px;">
+  <ion-item>
     <ion-avatar item-left>
       <button small ion-button clear (click)="listenplay(lis)">
         <img src="img/play-button.png">
@@ -173,10 +172,6 @@
     </ion-avatar>
     <h2> my life}</h2>
     <h5> 00:30:34</h5>
-    <!--<ion-range [(ngModel)]="brightness">
-      <ion-icon range-left small name="rewind"></ion-icon>
-      <ion-icon range-left small name="fastforward"></ion-icon>
-      <ion-icon range-right name="pause"></ion-icon>
-    </ion-range>-->
+
   </ion-item>
 </ion-footer>

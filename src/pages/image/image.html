@@ -24,7 +24,18 @@
 </ion-header>
 
 <ion-content>
+
   <ion-list>
+     <ion-slides pager [options]="features">
+      <ion-slide style="max-height:150px;padding-right:3px;" *ngFor="let img of imgdata">
+        <ion-col>
+          <ion-img [src]="img.img" height="100px" width="100%"></ion-img>
+
+        </ion-col>
+
+      </ion-slide>
+
+    </ion-slides>
     <ion-list-header>popular images</ion-list-header>
     <ion-item *ngFor="let dt of imgdata">
       <ion-card style="position: relative; text-align: center;">
