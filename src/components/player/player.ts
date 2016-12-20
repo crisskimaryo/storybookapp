@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import{NavController} from 'ionic-angular'
+// import{NavController} from 'ionic-angular'
 
 @Component({
   selector: 'player',
@@ -7,19 +7,18 @@ import{NavController} from 'ionic-angular'
 })
 export class PlayerComponent {
 
-  constructor(public navCtrl:NavController) {
+  // constructor(public navCtrl:NavController) {
 
+  // }
+  //   back() {
+  //   this.navCtrl.pop()
+  // }
 
-  }
-    back() {
-    this.navCtrl.pop()
-  }
+  // swipe() {
 
-  swipe() {
+  //   this.navCtrl.pop()
 
-    this.navCtrl.pop()
-
-  }
+  // }
 
 
 }

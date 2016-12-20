@@ -1,3 +1,4 @@
+<!--<<<<<<< HEAD
 <ion-content style=" background-color: rgba(0, 0, 0, .20);">
   <ion-row>
 
@@ -16,3 +17,29 @@
   </ion-list>
 
 </ion-content>
+=======
+
+ -->
+  <ion-row>
+     <ion-buttons start>
+    <button ion-button large clear (click)="close()">
+<ion-icon name="ios-arrow-down"></ion-icon>
+ </button>
+  </ion-buttons>
+    <ion-col>
+   
+    </ion-col>
+  </ion-row>
+
+<ion-content style=" background-color: rgba(0, 0, 0, .20);">
+
+
+<ion-list no-lines>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-item *ngFor="let res of results">
+{{res.title}}
+</ion-item>
+</ion-list>
+
+</ion-content>
+>>>>>>> modifie search
