@@ -24,7 +24,7 @@ export class BookPage {
         return this._books.books()
         .subscribe(
           data=>{
-            this.bkdata=data
+            this.bkdata=data.book
             console.log(this.bkdata);
            }
 
@@ -45,12 +45,15 @@ export class BookPage {
             })
         }
     }
+ navstry(img) {
 
-    navstry() {
 
-        this.navCtrl.push(ToreadPage)
-    }
+    let book = this.bkdata.filter(
+      bkdata => bkdata.id === img.id);
 
+    this.navCtrl.push(ToreadPage, { data: book, img })
+    console.log(book)
+  }
 
 
 

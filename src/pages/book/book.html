@@ -1,5 +1,5 @@
 <ion-header>
-   <ion-toolbar position="buttom">
+  <ion-toolbar position="buttom">
     <ion-segment [(ngModel)]="choosebook">
       <ion-segment-button value="All">
         All
@@ -15,7 +15,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content style="background:#dddfe2 ">
 
   <div>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
@@ -28,113 +28,101 @@
           Popular Stories
         </ion-list-header>
         <div style="padding:1px;">
-          <ion-row wrap>
-            <ion-col width-50 style="width:100%;  padding:0px;padding-left:1px; padding-bottom:4px;" *ngFor="let img of bkdata">
-              <div style="position: relative; height:100%; padding:0px; width:100%;">
-                <span (click)="navstry()">
-                <ion-item-divider  style="color:lightgray;background-color:whitesmoke; " >
-								{{img.title}}
-							</ion-item-divider>
-
-							<ion-img [src]="img.img" height="160px" width="100%" ></ion-img></span>
-                <div style="top:65%;  width:100%; background: #dddfe2;  ">
-                  <ion-row color="danger">
-                    <ion-col width-33>
-                      <button ion-button color="favorite" clear small icon-left>
+<ion-row wrap>
+  <ion-col width-50 style="width:100%;  padding:0px;padding-left:1px; padding-bottom:4px;" *ngFor="let img of bkdata">
+<div style="position: relative; height:100%; padding:0px; width:100%;">
+<span (click)="navstry(img)">
+                <ion-item-divider  style="color:lightgray;background-color:whitesmoke; " > {{img.title}}
+</ion-item-divider>
+<!--this can be modified according to api format -->
+<!--<ion-img [src]="img.cover" height="160px" width="100%" ></ion-img>-->
+<ion-img [src]="img.cover" height="160px" width="100%"></ion-img>
+</span>
+<div style="top:65%;  width:100%; background: #dddfe2;  ">
+<ion-row color="danger">
+  <ion-col width-33>
+    <button ion-button color="favorite" clear small icon-left>
         <ion-icon  name='eye'></ion-icon>
         12 k
       </button>
-                    </ion-col>
+  </ion-col>
 
-                    <ion-col width-33>
-                      <button ion-button color="danger" clear small icon-left>
+  <ion-col width-33>
+    <button ion-button color="danger" clear small icon-left>
         <ion-icon name='heart'></ion-icon>
-        4 m
+        {{img.n_likes}}
       </button>
-                    </ion-col>
+  </ion-col>
 
-                  </ion-row>
-                </div>
-              </div>
-            </ion-col>
-          </ion-row>
+</ion-row>
+</div>
+</div>
+</ion-col>
+</ion-row>
 
-        </div>
+</div>
 
-      </ion-list>
+</ion-list>
 
 
-    </ion-list>
+</ion-list>
 
-    <ion-list *ngSwitchCase="'series'">
+<ion-list *ngSwitchCase="'series'">
 
-    </ion-list>
+</ion-list>
 
-    <ion-list *ngSwitchCase="'Short'" no-lines>
-      <ion-list-header>
-        Popular Stories
-      </ion-list-header>
-      <div>
-        <ion-item padding *ngFor="let bk of  bkdata">
-          <div style="position: relative; height:100%; padding:0px; width:100%;">
-            <span (click)="navstry()">
-                <ion-item-divider light style="color:9e715f;background-color:whitesmoke; " >
-								{{bk.title}}
-							</ion-item-divider>
+<ion-list *ngSwitchCase="'Short'" no-lines>
+  <ion-list-header>
+    Popular Stories
+  </ion-list-header>
+  <div>
+    <ion-item padding *ngFor="let bk of  bkdata">
+      <div style="position: relative; height:100%; padding:0px; width:100%;">
+<span (click)="navstry(bk)">
+                <ion-item-divider light style="color:9e715f;background-color:whitesmoke; " > {{bk.title}}
+</ion-item-divider>
 
-							<ion-img [src]="bk.img" width="100%" style="max-height:200px;"></ion-img></span>
-            <div style="top:65%;  width:100%; background: #dddfe2;  ">
-              <ion-row color="danger">
-                <ion-col width-33>
-                  <button ion-button color="danger" clear small icon-left>
+<ion-img [src]="bk.cover" width="100%" style="max-height:200px;"></ion-img>
+</span>
+<div style="top:65%;  width:100%; background: #dddfe2;  ">
+<ion-row color="danger">
+  <ion-col width-33>
+    <button ion-button color="danger" clear small icon-left>
         <ion-icon  name='eye'></ion-icon>
         7 k
       </button>
-                </ion-col>
+  </ion-col>
 
-                <ion-col width-33>
-                  <button ion-button color="danger" clear small icon-left>
+  <ion-col width-33>
+    <button ion-button color="danger" clear small icon-left>
         <ion-icon name='heart'></ion-icon>
-        4 m
+        {{bk.n_likes}}
       </button>
-                </ion-col>
+  </ion-col>
 
-              </ion-row>
-            </div>
-          </div>
-        </ion-item>
-
-
-      </div>
-
-    </ion-list>
-
-    <ion-card>
-      <ion-card-content>
-        <ion-img src="img/katuni/vibonjo.jpeg"></ion-img>
-      </ion-card-content>
-
-      <ion-item>
-        <button ion-button clear item-left>Like</button>
-        <button ion-button clear item-right>Comment</button>
-      </ion-item>
-    </ion-card>
-
-  </div>
+</ion-row>
+</div>
+</div>
+</ion-item>
 
 
-  <div style="background:green;position:fixed; bottom:0%;">
-    <ion-item style="background:coral;padding:0px; margin:0px;">
+</div>
 
-      <h2> my life}</h2>
-      <h5> 00:30:34</h5>
-      <ion-range>
-        <ion-icon range-left small name="rewind"></ion-icon>
-        <ion-icon range-left small name="fastforward"></ion-icon>
-        <ion-icon range-right name="pause"></ion-icon>
-      </ion-range>
-    </ion-item>
-  </div>
+</ion-list>
+
+<ion-card>
+  <ion-card-content>
+    <ion-img src="img/katuni/vibonjo.jpeg"></ion-img>
+  </ion-card-content>
+
+  <ion-item>
+    <button ion-button clear item-left>Like</button>
+    <button ion-button clear item-right>Comment</button>
+  </ion-item>
+</ion-card>
+
+</div>
+
 
 
 </ion-content>

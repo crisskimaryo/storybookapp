@@ -1,6 +1,6 @@
 
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color=orange> 
     <ion-buttons start>
       <button ion-button icon-only>
           <ion-icon name="person-add"></ion-icon>
@@ -18,7 +18,7 @@
 
 </ion-header>
 
-<ion-content style="background:#dddfe2">
+<ion-content style="background:#dddfe2 "  >
   <!--<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>-->
   <ion-list *ngIf="images">
     <ion-list-header>
@@ -42,22 +42,22 @@
         <ion-col width-33 style="background:whitesmoke; min-height:150px; padding:0px;padding-left:1px; padding-bottom:2px;" *ngFor="let img of images">
           <div style="position: relative; height:100%; padding:0px; width:100%;">
             <div style="position: absolute; top:0%; height:100%;  width:100%; background-color: rgba(0, 0, 0, .5); ">
-              <div style="position: absolute; top:0%; height:50%;  width:100%; color:ghostwhite; padding:5px;" (click)="navstry(img)">
+              <div style="position: absolute; top:0%; height:50%;  width:100%; color:ghostwhite; padding:5px; text-align: center;" (click)="navstry(img)">
                 {{img.title}}
               </div>
             </div>
             <img [src]="img.cover" width="100%" style=" height:100%;max-height:150px;">
-            <div style="position: absolute; top:60%;  width:100%; background-color: rgba(0, 0, 0, .1); ">
+            <div style="position: absolute; top:60%;  width:100%;">
               <ion-row color="danger">
                 <ion-col width-50>
-                  <button ion-button color="danger" clear icon-left item-left>
+                  <button ion-button color="danger" no-padding clear icon-left item-left>
         <ion-icon  name='eye'></ion-icon>
   <ion-badge  color="#8080" style="background-color: rgba(0,0,0, .0);" >22k</ion-badge>
       </button>
                 </ion-col>
 
                 <ion-col width-50>
-                  <button ion-button color="danger" (click)="liked(img)" clear icon-left item-right>
+                  <button ion-button color="danger" (click)="liked(img)" no-padding clear icon-left item-right>
         <ion-icon [name]="img.like ? 'heart' : 'heart-outline'" ></ion-icon>
         <ion-badge  color="#8080" style=" background-color: rgba(0,0,0, .0);" >{{img.n_likes}}</ion-badge>
 
@@ -106,14 +106,14 @@
             <div style="position: absolute; top:60%;  width:100%; background-color: rgba(0, 0, 0, .1); ">
               <ion-row color="danger">
                 <ion-col width-50>
-                  <button ion-button color="danger" clear icon-left item-left>
+                  <button ion-button color="danger" no-padding  clear icon-left item-left>
         <ion-icon  name='eye'></ion-icon>
   <ion-badge  color="#8080" style="background-color: rgba(0,0,0, .0);" >22k</ion-badge>
       </button>
                 </ion-col>
 
                 <ion-col width-50>
-                  <button ion-button color="danger" (click)="liked(img)" clear icon-left item-right>
+                  <button ion-button color="danger" (click)="liked(img)" no-padding clear icon-left item-right>
         <ion-icon [name]="img.like ? 'heart' : 'heart-outline'" ></ion-icon>
         <ion-badge  color="#8080" style=" background-color: rgba(0,0,0, .0);" >{{img.n_likes}}</ion-badge>
 
@@ -131,7 +131,7 @@
 
     </div>
   </ion-list>
-  <ion-list padding-bottom>
+  <ion-list padding-bottom *ngIf="listens">
     <ion-list-header>
       short listens Stories<span style="float:right;"><ion-note>more ..</ion-note></span>
     </ion-list-header>
@@ -146,14 +146,14 @@
 
       <span style="float:right; ">
           <div style="bottom:0%; position:absolute;right:0%;">
-          <button ion-button small color="danger" clear icon-left >
+          <button ion-button small color="danger"no-padding  clear icon-left >
         <ion-icon  name='eye'></ion-icon>
   <ion-badge  color="#8080" style="background-color: rgba(0,0,0, .5);" >{{lis.views}}</ion-badge>
       </button>
 
-          <button ion-button small color="danger" clear icon-left >
+          <button ion-button small color="danger" no-padding clear icon-left >
         <ion-icon [name]="lis.like ? 'heart' : 'heart-outline'" ></ion-icon>
-        <ion-badge  color="#8080" style=" background-color: rgba(0,0,0, .5);" >{{lis.likes}}</ion-badge>
+        <ion-badge  color="#8080" style=" background-color: rgba(0,0,0, .5);" >{{lis.n_likes}}</ion-badge>
 
       </button>
           </div>
@@ -167,7 +167,7 @@
 <ion-footer class="player" style=" position: absolute; width:100%;" (swipe)="swipe($event)" *ngIf="played">
   <ion-item>
     <ion-avatar item-left>
-      <button small ion-button clear (click)="listenplay(lis)">
+      <button small ion-button clear no-padding (click)="listenplay(lis)">
         <img src="img/play-button.png">
         </button>
     </ion-avatar>

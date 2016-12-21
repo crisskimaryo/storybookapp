@@ -1,28 +1,66 @@
 <ion-header>
-	<ion-navbar>
+	<ion-navbar *navbar>
 		<ion-title>
 			listen
 		</ion-title>
 	</ion-navbar>
+
+	<ion-segment [(ngModel)]="choosebook" color=orange>
+		<ion-segment-button value="All">
+		 popular stories
+		</ion-segment-button>
+		<ion-segment-button value="series">
+			series
+		</ion-segment-button>
+		<ion-segment-button value="Short">
+			Short
+		</ion-segment-button>
+		
+	</ion-segment>
 </ion-header>
 
-<ion-content>
-	<ion-list>
-		<ion-list-header>popular listen</ion-list-header>
-		<ion-item>
-		
-		</ion-item>
+<ion-content style="background:whitesmoke" >
 
-		<ion-card>
+	<ion-list no-lines padding-bottom padding-top>
+		<!--<ion-list-header>popular listen</ion-list-header>-->
+		<div style="padding:1px; background: whitesmoke;">
+<ion-row wrap>
+	<ion-col width-33 style="background:whitesmoke; min-height:150px; margin:0%; padding:0px;padding-left:1px; padding-bottom:2px;" *ngFor="let lis of listens">
+<div style="position: relative; height:100%; padding:0px; width:100%;">
+<div style="position: absolute; top:0%; height:100%;  width:100%; background-color: rgba(0, 0, 0, .5); ">
+<div style="position: absolute; top:0%; height:50%;  width:100%; color:ghostwhite; padding:5px; text-align: center;" (click)="navstry(lis)"> {{lis.title}}
+</div>
+<div style="position: absolute; top:35%; height:50%;  width:100%; color:ghostwhite; padding:5px; text-align: center;" (click)="navstry(lis)"> {{lis.duration}}
+</div>
+</div>
+<img *ngIf="lis.cover" [src]="lis.cover" width="100%" style=" height:100%;max-height:150px;">
+<div style="position: absolute; top:60%;  width:100%; text-align: center; ">
+<ion-row color="danger">
+	<ion-col width-50>
+		<button ion-button color="danger" no-padding clear icon-left item-left>
+        <ion-icon  name='eye'></ion-icon>
+  <ion-badge  color="#8080" style="background-color: rgba(0,0,0, .0);" >22k</ion-badge>
+</button>
+</ion-col>
 
-			<ion-card-header>
+<ion-col width-50>
+	<button ion-button color="danger" (click)="liked(lis)" no-padding clear icon-left item-right>
+        <ion-icon [name]="lis.like ? 'heart' : 'heart-outline'" ></ion-icon>
+        <ion-badge  color="#8080" style=" background-color: rgba(0,0,0, .0);" >{{lis.n_likes}}</ion-badge>
 
-			</ion-card-header>
+</button>
 
-			<ion-card-content>
-				<!-- Add card content here! -->
-			</ion-card-content>
 
-		</ion-card>
-	</ion-list>
+</ion-col>
+
+</ion-row>
+</div>
+
+</div>
+</ion-col>
+</ion-row>
+
+</div>
+
+</ion-list>
 </ion-content>

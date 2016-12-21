@@ -7,7 +7,7 @@ export class Book {
 
     constructor(private http: Http) { }
     books() {
-        return this.http.get('assets/mocks/booksdata.json')
+        return this.http.get('assets/mocks/books.json')
             .map(res => res.json())
     }
 
@@ -17,7 +17,7 @@ export class Book {
     }
 
     offlinedata() {
-        return this.http.get('assets/mocks/offlinedata.json')
+        return this.http.get('assets/mocks/books.json')
             .map(res => res.json())
     }
 }

@@ -48,7 +48,7 @@ export class HomePage {
   ionViewDidLoad() {
     this._listen.offlinelisten()
       .subscribe(
-      data => { this.listens = data; }
+      data => { this.listens = data.listen; }
       )
 
     this.offlineLoading = this.Loading.create({
@@ -87,7 +87,7 @@ export class HomePage {
     this._book.offlinedata()
       .subscribe(
       data => {
-        this.images = data;
+        this.images = data.book;
         //temporary object for search data retrieve on null
         this.im = data;
         console.log(this.images)

@@ -7,7 +7,12 @@ export class Listen {
 
   constructor(public http: Http) { }
   offlinelisten() {
-    return this.http.get('assets/mocks/offlineaudio.json')
+    return this.http.get('assets/mocks/books.json')
+      .map(res => res.json())
+  }
+
+  listen() {
+    return this.http.get('assets/mocks/books.json')
       .map(res => res.json())
   }
 }
