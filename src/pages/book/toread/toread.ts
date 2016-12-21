@@ -6,8 +6,14 @@ import { Data } from '../../../providers/data'
 @Component({
   selector: 'introv',
   template: `
-<ion-content style="background:rgba(0,0,0,.4);"  >
-<p style="padding:5%;background:rgba(244,247,247,.8);bottom:10%;" wrap>
+<ion-content style="background:rgba(0,0,0,.4); "  >
+<span style="position: absolute; top: 0%; left:45%; " >
+   <button ion-button  icon-only clear large (click)="close()">
+        <ion-icon  color="orange"  name="close"></ion-icon>
+
+      </button>
+</span>
+<p style="padding:5%;background:rgba(244,247,247,.8);bottom:10%;padding-top:12%; " wrap>
 
 "huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
 Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
@@ -25,24 +31,7 @@ Nikiwa nimekaa sina habari.
 "huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
 Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
 Wanafunzi wote walitawanyika tayari hata rafiki zangu walishaondoka.<br>
-Nikiwa nimekaa sina habari.
-
-"huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
-Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
-Wanafunzi wote walitawanyika tayari hata rafiki zangu walishaondoka.<br>
-Nikiwa nimekaa sina habari.
-
-"huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
-Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
-Wanafunzi wote walitawanyika tayari hata rafiki zangu walishaondoka.<br>
-Nikiwa nimekaa sina habari.
-
-"huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
-Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
-Wanafunzi wote walitawanyika tayari hata rafiki zangu walishaondoka.<br>
-Nikiwa nimekaa sina habari.
-
-
+Nikiwa nimekaa sina habari<b>..........</b>
 
 
 
@@ -51,7 +40,19 @@ Nikiwa nimekaa sina habari.
 </ion-content>
 `
 })
-export class introv { }
+export class introv { 
+  constructor(
+    public navCtrl: NavController,
+    public params: NavParams,
+    public popoverCtrl: PopoverController,
+    public modalctr: ModalController,
+    public alertctrl:AlertController,
+    public dataservice: Data
+  ) {}
+  close(){
+    this.navCtrl.pop()
+  }
+}
 
 @Component({
   selector: 'page-toread',
@@ -118,37 +119,5 @@ export class ToreadPage {
     modal.present()
   }
 
-  intro() {
-    let intro = this.alertctrl.create({
-      title: 'Modify your album',
-      subTitle:`
-<div>
-      "huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
-Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
-Wanafunzi wote walitawanyika tayari hata rafiki zangu walishaondoka.<br>
-Nikiwa nimekaa sina habari.
-
-"huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
-Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
-Wanafunzi wote walitawanyika tayari hata rafiki zangu walishaondoka.<br>
-Nikiwa nimekaa sina habari.
-
-  "huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
-Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
-Wanafunzi wote walitawanyika tayari hata rafiki zangu walishaondoka.<br>
-Nikiwa nimekaa sina habari.
-
-"huyu leo simuachi nitamsubiri hapa hapa hadi niondoke nae hawezi tesa hisia zangu."<br>
-Nilijiapiza kumsubiri Grace hata niongozane nae. ila akaelekea maktaba ya shule hapo nikakaa chini ya mti wa muembe nikimsubiri.<br>
-Wanafunzi wote walitawanyika tayari hata rafiki zangu walishaondoka.<br>
-Nikiwa nimekaa sina habari.
-</div>
-
-
-      `
-
-
-    });
-    intro.present();
-  }
+ 
 }

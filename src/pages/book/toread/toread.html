@@ -5,10 +5,10 @@
     <div style="position: absolute; top:0%; height:100%; font-size: 2.0em; width: 100%; font-weight: bold; background-color: rgba(0, 20, 0, .1); "
       no-lines>
       <ion-row>
-        <ion-col>
+        <ion-col >
           <ion-buttons start>
             <button ion-button clear icon-only (click)="back()">
-          <ion-icon name="arrow-back"></ion-icon>
+          <ion-icon color=orange  name="arrow-back"></ion-icon>
 
         </button>
           </ion-buttons>
@@ -21,7 +21,7 @@
         <ion-col>
           <ion-buttons end>
             <button ion-button clear icon-only (click)="presentPopover($event)">
-          <ion-icon name="more"></ion-icon>
+          <ion-icon color=orange  name="more"></ion-icon>
         </button>
           </ion-buttons>
         </ion-col>
@@ -57,14 +57,14 @@
   </div>
 
   <div padding>
-    <ion-segment [(ngModel)]="choosetab">
+    <ion-segment [(ngModel)]="choosetab" color=orange>
       <ion-segment-button value="toread">
 
         <ion-icon name="book" isActive="true"></ion-icon>
         12 M
       </ion-segment-button>
       <ion-segment-button value="comments">
-        <ion-icon name="chatboxes" (click)="intro()" isActive="false"></ion-icon>
+        <ion-icon name="chatboxes"  isActive="false"></ion-icon>
         2.3 K
       </ion-segment-button>
     </ion-segment>
