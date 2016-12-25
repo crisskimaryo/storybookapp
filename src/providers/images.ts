@@ -8,7 +8,7 @@ export class Images {
   constructor(public http: Http) { }
 
   Image() {
-    return this.http.get('assets/mocks/booksdata.json')
+    return this.http.get('assets/mocks/books.json')
       .map(res => res.json())
   }
 

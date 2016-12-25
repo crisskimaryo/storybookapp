@@ -29,7 +29,7 @@ features:any;
 
   ionViewDidLoad() {
     return this.imagesServise.Image().subscribe(
-      data => { this.imgdata = data }
+      data => { this.imgdata = data.image }
     )
   }
 
