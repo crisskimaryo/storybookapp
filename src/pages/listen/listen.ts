@@ -6,6 +6,7 @@ import { Listen } from '../../providers/listen'
   templateUrl: 'listen.html'
 })
 export class ListenPage {
+  chooselisten: string;
   public listens: any[];
   constructor(
     public navCtrl: NavController,
@@ -16,7 +17,7 @@ export class ListenPage {
 
   ionViewDidLoad() {
 
-
+   this.chooselisten = "All";
     this._listen.listen()
       .subscribe(
       data => { this.listens = data.listen; },

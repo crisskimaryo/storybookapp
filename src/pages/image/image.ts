@@ -11,7 +11,7 @@ import { ImageviewComponent } from '../../components/imageview/imageview'
 })
 export class ImagePage {
   imgdata: Array<any>;
-  choosest: any;
+  chooseimage: any;
   imgdt: any;
 features:any;
   constructor(
@@ -20,7 +20,7 @@ features:any;
     public modalctrl: ModalController,
     public params: NavParams
   ) {
-    this.choosest = "series"
+    this.chooseimage = "series"
     this.features = {
       slidesPerView: 2.5,
       paginationClickable: true

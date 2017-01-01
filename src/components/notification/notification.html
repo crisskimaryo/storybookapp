@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color=orange>
+    <ion-row>
+
+      <ion-col>
+        <ion-buttons start>
+          <button clear ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col style="text-align:center; margin-top:10px;">
+<ion-title>
+  notifications
+</ion-title>
+</ion-col>
+<ion-col>
+  <ion-buttons end>
+    <button clear ion-button (click)="close()">
+        <ion-icon   name="add"></ion-icon>
+      </button>
+  </ion-buttons>
+</ion-col>
+</ion-row>
+
+
+
+</ion-navbar>
+
+
+</ion-header>
+
+<ion-content style=" background-color: rgba(0, 0, 0, .20);">
+<ion-list no-lines>
+  <!--<ion-item style="text-align: center;" *ngIf="notification.notify<1">-->
+  <ion-item style="text-align: center;" padding-top >
+        <ion-note>
+          <h5> Ooops not yet !</h5>
+        </ion-note>
+        <ion-note> follow the stories/ author / pages for  notifications</ion-note>
+      </ion-item>
+</ion-list>
+
+</ion-content>

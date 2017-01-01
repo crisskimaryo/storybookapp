@@ -5,9 +5,11 @@ import { ToreadPage } from '../book/toread/toread';
 import { TolistenPage } from '../listen/tolisten/tolisten';
 import { Data } from '../../providers/data'
 import { Http } from '@angular/http';
-import { PlayerComponent } from '../../components/player/player'
+
 import { Book } from '../../providers/book'
 import { Listen } from '../../providers/listen'
+import { ListenplayerComponent } from '../../components/listenplayer/listenplayer'
+import { notificationComponent } from '../../components/notification/notification'
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -139,7 +141,7 @@ export class HomePage {
   // DIRECTION_ALL          30
 
   swipe(e) {
-    let modal = this.modalCtrl.create(PlayerComponent);
+    let modal = this.modalCtrl.create(ListenplayerComponent);
     modal.present();
     this.played = false;
     console.log("swiped")
@@ -154,6 +156,11 @@ export class HomePage {
     console.log("playing :" + "  " + lis.title + ", Duration: " + lis.duration);
   }
 
+listenview(dt) {
+
+    let modal = this.modalCtrl.create(ListenplayerComponent, { data: dt })
+    modal.present()
+  }
   navstry(img) {
 
 
@@ -188,6 +195,10 @@ export class HomePage {
 
 searchnav(){
   let modal =this.modalCtrl.create(SearchPage)
+  modal.present()
+}
+notifynav(){
+  let modal =this.modalCtrl.create(notificationComponent)
   modal.present()
 }
 }

@@ -19,10 +19,11 @@ import { Data } from '../providers/data';
 import { Book } from '../providers/book';
 import { Images } from '../providers/images';
 import { Listen } from '../providers/listen';
-import{SoundCloud} from '../providers/sound-cloud/soundcloud'
+import { SoundCloud } from '../providers/sound-cloud/soundcloud'
 //component
-import { PlayerComponent } from '../components/player/player'
+import { ListenplayerComponent } from '../components/listenplayer/listenplayer'
 import { ImageviewComponent } from '../components/imageview/imageview'
+import { notificationComponent } from '../components/notification/notification'
 
 @NgModule({
   declarations: [
@@ -40,8 +41,9 @@ import { ImageviewComponent } from '../components/imageview/imageview'
     PopoverPage,
     TabsPage,
     //components
-    PlayerComponent,
-    ImageviewComponent
+    ListenplayerComponent,
+    ImageviewComponent,
+    notificationComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp,
@@ -78,10 +80,11 @@ import { ImageviewComponent } from '../components/imageview/imageview'
     PopoverPage,
     TabsPage,
     //component
-    PlayerComponent,
-    ImageviewComponent
+    ListenplayerComponent,
+    ImageviewComponent,
+    notificationComponent
   ],
 
-  providers: [Data, Book, Images, Listen,SoundCloud]
+  providers: [Data, Book, Images, Listen, SoundCloud]
 })
 export class AppModule { }

@@ -1,34 +1,42 @@
 <ion-header>
-  <ion-toolbar position="buttom" color=orange >
-     </ion-toolbar>
-    <ion-segment [(ngModel)]="choosebook" color=orange >
-      <ion-segment-button value="All">
-        All
-      </ion-segment-button>
-      <ion-segment-button value="series">
-        series
-      </ion-segment-button>
-      <ion-segment-button value="Short">
-        Short
-      </ion-segment-button>
-    </ion-segment>
- 
+  <ion-toolbar  position="buttom" color=orange>
+     <ion-buttons start >
+      <button ion-button icon-only large (click)="searchnav()">
+          <ion-icon ios="ios-search" md="md-book"></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="searchnav()">
+          <ion-icon ios="ios-search" md="md-search"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-segment [(ngModel)]="choosebook" color=orange>
+    <ion-segment-button value="All">
+      All
+    </ion-segment-button>
+    <ion-segment-button value="series">
+      series
+    </ion-segment-button>
+    <ion-segment-button value="Short">
+      Short
+    </ion-segment-button>
+  </ion-segment>
+
 </ion-header>
 
 
-<ion-content style="background:#dddfe2 ">
+<ion-content style="background:whitesmoke ">
 
-  <div>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  </div>
+<!--<div>recommended  here </div>-->
 
-  <div [ngSwitch]="choosebook">
-    <ion-list *ngSwitchCase="'All'">
-      <ion-list no-lines>
-        <ion-list-header>
-          Popular Stories
-        </ion-list-header>
-        <div style="padding:1px;">
+<div [ngSwitch]="choosebook">
+  <ion-list *ngSwitchCase="'All'">
+    <ion-list no-lines>
+      <ion-list-header>
+        Popular Stories
+      </ion-list-header>
+      <div style="padding:1px;">
 <ion-row wrap>
   <ion-col width-50 style="width:100%;  padding:0px;padding-left:1px; padding-bottom:4px;" *ngFor="let img of bkdata">
 <div style="position: relative; height:100%; padding:0px; width:100%;">

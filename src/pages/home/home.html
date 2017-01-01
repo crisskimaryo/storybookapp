@@ -2,8 +2,8 @@
 <ion-header>
   <ion-navbar color=orange> 
     <ion-buttons start>
-      <button ion-button icon-only>
-          <ion-icon name="person-add"></ion-icon>
+      <button ion-button icon-only (click)="notifynav()">
+          <ion-icon name="notifications"></ion-icon>
         </button>
     </ion-buttons>
     <ion-title>storybook</ion-title>
@@ -18,7 +18,7 @@
 
 </ion-header>
 
-<ion-content style="background:#dddfe2 "  >
+<ion-content style="background:whitesmoke "  >
   <!--<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>-->
   <ion-list *ngIf="images">
     <ion-list-header>
@@ -77,60 +77,52 @@
 
   </ion-list>
 
-
-  <ion-list no-lines *ngIf="images" padding-bottom>
+<ion-list no-lines padding-bottom padding-top>
+		<!--<ion-list-header>popular listen</ion-list-header>-->
     <ion-list-header>
       Trending Listen Stories<span style="float:right;"><ion-note>more ..</ion-note></span>
     </ion-list-header>
-    <div style="padding:1px;">
-      <ion-row wrap>
-        <ion-col width-50 style="background:whitesmoke;width:100%; min-height:150px; padding:0px;padding-left:1px; padding-bottom:2px;"
-          *ngFor="let img of images">
-          <div style="position: relative; height:100%; padding:0px; width:100%;">
-
-            <div style="position: absolute;padding:30%;">
-
-              <ion-avatar>
-                <img src="img/play.png">
-              </ion-avatar>
-
-            </div>
-
-
-            <div style="position: absolute; top:0%; height:100%;  width:100%; background-color: rgba(0, 0, 0, .5); ">
-              <div style="position: absolute; top:0%; height:50%;  width:100%; color:ghostwhite; padding:5px;" (click)="listennav(img)">
-                {{img.title}}
-              </div>
-            </div>
-            <img [src]="img.cover" width="100%" style=" height:100%;max-height:150px;">
-            <div style="position: absolute; top:60%;  width:100%; background-color: rgba(0, 0, 0, .1); ">
-              <ion-row color="danger">
-                <ion-col width-50>
-                  <button ion-button color="danger" no-padding  clear icon-left item-left>
-        <ion-icon  name='eye'></ion-icon>
+		<div style="padding:1px; background: whitesmoke;">
+<ion-row wrap>
+	<ion-col width-33 style="background:whitesmoke; min-height:150px; margin:0%; padding:0px;padding-left:1px; padding-bottom:2px;" *ngFor="let lis of listens">
+<div style="position: relative; height:100%; padding:0px; width:100%;">
+<div style="position: absolute; top:0%; height:100%;  width:100%; background-color: rgba(0, 0, 0, .5); ">
+<div style="position: absolute; top:0%; height:50%;  width:100%; color:ghostwhite; padding:5px; text-align: center;" (click)="navstry(lis)"> {{lis.title}}
+</div>
+<div style="position: absolute; top:35%; height:50%;  width:100%; color:ghostwhite; padding:5px; text-align: center;" (click)="navstry(lis)"> {{lis.duration}}
+</div>
+</div>
+<img *ngIf="lis.cover" [src]="lis.cover" width="100%" style=" height:100%;max-height:150px;">
+<div style="position: absolute; top:60%;  width:100%; text-align: center; ">
+<ion-row color="danger">
+	<ion-col width-50>
+		<button ion-button color="danger" no-padding clear icon-left item-left>
+        <ion-icon  name='headset'></ion-icon>
   <ion-badge  color="#8080" style="background-color: rgba(0,0,0, .0);" >22k</ion-badge>
-      </button>
-                </ion-col>
+</button>
+</ion-col>
 
-                <ion-col width-50>
-                  <button ion-button color="danger" (click)="liked(img)" no-padding clear icon-left item-right>
-        <ion-icon [name]="img.like ? 'heart' : 'heart-outline'" ></ion-icon>
-        <ion-badge  color="#8080" style=" background-color: rgba(0,0,0, .0);" >{{img.n_likes}}</ion-badge>
+<ion-col width-50>
+	<button ion-button color="danger" (click)="liked(lis)" no-padding clear icon-left item-right>
+        <ion-icon [name]="lis.like ? 'heart' : 'heart-outline'" ></ion-icon>
+        <ion-badge  color="#8080" style=" background-color: rgba(0,0,0, .0);" >{{lis.n_likes}}</ion-badge>
 
-      </button>
+</button>
 
 
-                </ion-col>
+</ion-col>
 
-              </ion-row>
-            </div>
+</ion-row>
+</div>
 
-          </div>
-        </ion-col>
-      </ion-row>
+</div>
+</ion-col>
+</ion-row>
 
-    </div>
-  </ion-list>
+</div>
+
+</ion-list>
+ 
   <ion-list padding-bottom *ngIf="listens">
     <ion-list-header>
       short listens Stories<span style="float:right;"><ion-note>more ..</ion-note></span>
@@ -165,7 +157,7 @@
 </ion-content>
 <!--this is ok but for it to be visible the binding should be checked /consided since it only check when the page is called-->
 <ion-footer class="player" style=" position: absolute; width:100%;" (swipe)="swipe($event)" *ngIf="played">
-  <ion-item>
+  <ion-item (click)="listenview(lis)">
     <ion-avatar item-left>
       <button small ion-button clear no-padding (click)="listenplay(lis)">
         <img src="img/play-button.png">

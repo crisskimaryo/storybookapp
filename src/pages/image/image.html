@@ -10,45 +10,47 @@
     </ion-title>
 
   </ion-navbar>
-  
-    <ion-segment [(ngModel)]="choosest" color=orange>
 
-      <ion-segment-button value="series">
-        series
-      </ion-segment-button>
-      <ion-segment-button value="Short">
-        Short
-      </ion-segment-button>
-    </ion-segment>
+  <ion-segment [(ngModel)]="chooseimage" color=orange>
+
+    <ion-segment-button value="series">
+      series
+    </ion-segment-button>
+    <ion-segment-button value="Short">
+      Short
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 <ion-content>
-
-  <ion-list>
-     <ion-slides pager [options]="features">
+<div [ngSwitch]="chooseimage">
+<ion-list padding-bottom padding-top *ngSwitchCase="'series'">
+    <ion-slides pager [options]="features">
       <ion-slide style="max-height:150px;padding-right:3px;" *ngFor="let img of imgdata">
-        <ion-col>
-          <ion-img [src]="img.img" height="100px" width="100%"></ion-img>
+<ion-col>
+  <ion-img [src]="img.img" height="100px" width="100%"></ion-img>
+</ion-col>
+</ion-slide>
+</ion-slides>
+<ion-list-header>popular images</ion-list-header>
+<!--add no-padding-->
+<ion-item *ngFor="let dt of imgdata">
+  <ion-card style="position: relative; text-align: center;">
 
-        </ion-col>
-
-      </ion-slide>
-
-    </ion-slides>
-    <ion-list-header>popular images</ion-list-header>
-    <ion-item *ngFor="let dt of imgdata">
-      <ion-card style="position: relative; text-align: center;">
-
-        <ion-img [src]="dt.img" (click)="imgview(dt)"></ion-img>
-        <div style="position: absolute; top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff;">{{dt.title}}</div>
-        <div class="font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff;"></div>
-
-
-        <ion-item>
-          <button ion-button clear item-left>Like {{dt.n_likes}}</button>
-          <button ion-button clear item-right>Comment</button>
-        </ion-item>
-      </ion-card>
-    </ion-item>
-  </ion-list>
+<ion-img [src]="dt.img" (click)="imgview(dt)"></ion-img>
+<div style="position: absolute; top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff;">{{dt.title}}</div>
+<div class="font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff;"></div>
+<ion-item>
+  <button ion-button clear item-left>Like {{dt.n_likes}}</button>
+  <button ion-button clear item-right>Comment</button>
+</ion-item>
+</ion-card>
+</ion-item>
+</ion-list>
+ <ion-list no-lines padding-bottom padding-top *ngSwitchCase="'Short'">
+	<ion-item>
+		short here
+	</ion-item>
+</ion-list>
+</div>
 </ion-content>

@@ -4,10 +4,16 @@
 			listen
 		</ion-title>
 	</ion-navbar>
-
-	<ion-segment [(ngModel)]="choosebook" color=orange>
+	<ion-toolbar position="buttom" color=orange>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="searchnav()">
+          <ion-icon ios="ios-search" md="md-search"></ion-icon>
+        </button>
+		</ion-buttons>
+	</ion-toolbar>
+	<ion-segment [(ngModel)]="chooselisten" color=orange>
 		<ion-segment-button value="All">
-		 popular stories
+			popular stories
 		</ion-segment-button>
 		<ion-segment-button value="series">
 			series
@@ -15,13 +21,11 @@
 		<ion-segment-button value="Short">
 			Short
 		</ion-segment-button>
-		
 	</ion-segment>
 </ion-header>
-
 <ion-content style="background:whitesmoke" >
-
-	<ion-list no-lines padding-bottom padding-top>
+<div [ngSwitch]="chooselisten">
+	<ion-list no-lines padding-bottom padding-top *ngSwitchCase="'All'">
 		<!--<ion-list-header>popular listen</ion-list-header>-->
 		<div style="padding:1px; background: whitesmoke;">
 <ion-row wrap>
@@ -42,25 +46,29 @@
   <ion-badge  color="#8080" style="background-color: rgba(0,0,0, .0);" >22k</ion-badge>
 </button>
 </ion-col>
-
 <ion-col width-50>
 	<button ion-button color="danger" (click)="liked(lis)" no-padding clear icon-left item-right>
         <ion-icon [name]="lis.like ? 'heart' : 'heart-outline'" ></ion-icon>
         <ion-badge  color="#8080" style=" background-color: rgba(0,0,0, .0);" >{{lis.n_likes}}</ion-badge>
-
 </button>
-
-
 </ion-col>
-
 </ion-row>
 </div>
-
 </div>
 </ion-col>
 </ion-row>
-
 </div>
-
 </ion-list>
+<ion-list no-lines padding-bottom padding-top *ngSwitchCase="'series'">
+	<ion-item>
+		series here
+	</ion-item>
+</ion-list>
+<ion-list no-lines padding-bottom padding-top *ngSwitchCase="'Short'">
+	<ion-item>
+		short stories here
+	</ion-item>
+</ion-list>
+</div>
+
 </ion-content>
