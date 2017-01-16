@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 @Injectable()
 export class Images {
 
-  constructor(public http: Http) { }
-
+ images$: FirebaseListObservable<any>;
+  constructor(public http: Http,private af:AngularFire) {}
+ 
   Image() {
-    return this.http.get('assets/mocks/books.json')
-      .map(res => res.json())
-  }
-
-
-}
+    this.images$=this.af.database.list('/image')
+    return   this.images$
+ } }

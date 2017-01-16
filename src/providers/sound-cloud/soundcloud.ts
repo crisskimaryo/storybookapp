@@ -80,7 +80,7 @@ export class SoundCloud {
 
     SC.stream('/tracks/' + this.currentTrack.id).then((player) => {
 
-      player.play();
+      // player.play();
 
       player.on('buffering_start', () => {
         console.log('buffering...');
@@ -97,9 +97,8 @@ export class SoundCloud {
         } else {
           this.playTrack = 0;
         }
-
         console.log('time to move on...');
-        this.startStreaming();
+        // this.startStreaming();
 
       });
     });

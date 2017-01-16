@@ -33,8 +33,8 @@
 </ion-slide>
 </ion-slides>
 <ion-list-header>popular images</ion-list-header>
-<!--add no-padding-->
-<ion-item *ngFor="let dt of imgdata">
+
+<ion-item *ngFor="let dt of images">
   <ion-card style="position: relative; text-align: center;">
 
 <ion-img [src]="dt.img" (click)="imgview(dt)"></ion-img>

@@ -25,6 +25,19 @@ import { ListenplayerComponent } from '../components/listenplayer/listenplayer'
 import { ImageviewComponent } from '../components/imageview/imageview'
 import { notificationComponent } from '../components/notification/notification'
 
+// //firebase angular
+import { AngularFireModule } from 'angularfire2';
+
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyDwd0_voNaScHmIgI8DPiMzg3LcA1pIcOE",
+  authDomain: "storybookapp-10bfd.firebaseapp.com",
+  databaseURL: "https://storybookapp-10bfd.firebaseio.com",
+  storageBucket: "storybookapp-10bfd.appspot.com",
+  messagingSenderId: "140586700015"
+};
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -62,7 +75,8 @@ import { notificationComponent } from '../components/notification/notification'
         //       tabsPlacement: 'top'
         //     }
         //   }
-      })
+      }),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
