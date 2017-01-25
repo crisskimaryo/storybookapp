@@ -24,6 +24,8 @@ import { SoundCloud } from '../providers/sound-cloud/soundcloud'
 import { ListenplayerComponent } from '../components/listenplayer/listenplayer'
 import { ImageviewComponent } from '../components/imageview/imageview'
 import { notificationComponent } from '../components/notification/notification'
+import { LoadingIndicatorComponent } from '../components/loadingindicator/loading-indicator'
+
 
 // //firebase angular
 import { AngularFireModule } from 'angularfire2';
@@ -56,7 +58,8 @@ export const firebaseConfig = {
     //components
     ListenplayerComponent,
     ImageviewComponent,
-    notificationComponent
+    notificationComponent,
+    LoadingIndicatorComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp,
@@ -96,7 +99,8 @@ export const firebaseConfig = {
     //component
     ListenplayerComponent,
     ImageviewComponent,
-    notificationComponent
+    notificationComponent,
+    LoadingIndicatorComponent
   ],
 
   providers: [Data, Book, Images, Listen, SoundCloud]

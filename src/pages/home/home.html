@@ -5,21 +5,22 @@
           <ion-icon name="notifications" ></ion-icon>
           <!--number of unread  notification number here-->
           <span  style="position: absolute; top: 3px; right: 0px;font-size: 10px;"></span>
-        </button>
-    </ion-buttons>
-    <ion-title>storybook</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="searchnav()">
+</button>
+</ion-buttons>
+<ion-title>storybook</ion-title>
+<ion-buttons end>
+  <button ion-button icon-only (click)="searchnav()">
           <ion-icon ios="ios-search"  md="md-search"></ion-icon>
         </button>
-    </ion-buttons>
+</ion-buttons>
 
-  </ion-navbar>
+</ion-navbar>
 
 
 </ion-header>
 
 <ion-content style="background:whitesmoke " >
+<loading-indicator></loading-indicator>
 <!--<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>-->
 <ion-list *ngIf="images">
   <ion-list-header>
@@ -139,7 +140,7 @@
 <ion-item *ngFor="let lis of listens">
   <ion-avatar item-left>
     <button ion-button clear (click)="listenplay(lis)">
-        <img src="img/play-button.png">
+        <img src="https://github.com/davidtran/angular2-soundcloud/blob/master/images/play.png?raw=true">
         </button>
   </ion-avatar>
   <h2> {{lis.title}}</h2>
@@ -169,7 +170,7 @@
 <ion-item (click)="listenview(lis)">
   <ion-avatar item-left>
     <button small ion-button clear no-padding (click)="listenplay(lis)">
-        <img src="img/play-button.png">
+        <img src="https://github.com/davidtran/angular2-soundcloud/blob/master/images/pause.png?raw=true">
         </button>
   </ion-avatar>
   <h2> my life}</h2>

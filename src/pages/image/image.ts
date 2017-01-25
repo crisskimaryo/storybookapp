@@ -34,11 +34,10 @@ export class ImagePage {
 
   ionViewDidLoad() {
 
-    return this.imagesServise.Image().subscribe(
-      data => { this.images = data }
+    // return this.imagesServise.Image().subscribe(
+    //   data => { this.images = data }
     )
   }
-
   imgview(dt) {
 
     let modal = this.modalctrl.create(ImageviewComponent, { data: dt, imgdata: this.images })

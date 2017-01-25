@@ -17,11 +17,10 @@
       </ion-col>
     </ion-row>
   </div>
-
   <ion-item>
     <div color=light>{{imgs.title}}</div>
   </ion-item>
-  <ion-img [src]="imgs.img"></ion-img>
+  <img [src]="imgs.img" style="max-height: 65%;width: 100%;"/>
 
   <ion-item>
     <button ion-button clear item-left>Like {{imgs.n_likes}}</button>

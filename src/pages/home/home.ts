@@ -10,6 +10,8 @@ import { Book } from '../../providers/book'
 import { Listen } from '../../providers/listen'
 import { ListenplayerComponent } from '../../components/listenplayer/listenplayer'
 import { notificationComponent } from '../../components/notification/notification'
+// import { LoadingIndicatorComponent } from '../../components/loadingindicator/loading-indicator'
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',

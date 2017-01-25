@@ -36,11 +36,13 @@
 
 <ion-item *ngFor="let dt of images">
   <ion-card style="position: relative; text-align: center;">
-
-<ion-img [src]="dt.img" (click)="imgview(dt)"></ion-img>
-<div style="position: absolute; top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff;">{{dt.title}}</div>
-<div class="font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff;"></div>
-<ion-item>
+<!--<ion-card-header>
+  {{dt.title}}
+</<ion-card-header>-->
+<img [src]="dt.img" (click)="imgview(dt)" width="470px"/>
+<div style="position: absolute; top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff;"></div>
+<div style="font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff;"></div>
+<ion-item style="font-size: 1.0em;">
   <button ion-button clear item-left>Like {{dt.n_likes}}</button>
   <button ion-button clear item-right>Comment</button>
 </ion-item>

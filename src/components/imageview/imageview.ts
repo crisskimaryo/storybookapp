@@ -18,10 +18,8 @@ export class ImageviewComponent {
       slidesPerView: 3.5,
       paginationClickable: true
     }
-
   }
   ionViewDidLoad() {
-
 
   }
 
