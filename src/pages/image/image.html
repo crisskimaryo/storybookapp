@@ -24,28 +24,49 @@
 
 <ion-content>
 <div [ngSwitch]="chooseimage">
-<ion-list padding-bottom padding-top *ngSwitchCase="'series'">
-    <ion-slides pager [options]="features">
+<ion-list padding-bottom  *ngSwitchCase="'series'">
+    <!--<ion-slides pager [options]="features">
       <ion-slide style="max-height:150px;padding-right:3px;" *ngFor="let img of imgdata">
 <ion-col>
   <ion-img [src]="img.img" height="100px" width="100%"></ion-img>
 </ion-col>
 </ion-slide>
-</ion-slides>
-<ion-list-header>popular images</ion-list-header>
+</ion-slides>-->
 
-<ion-item *ngFor="let dt of images">
-  <ion-card style="position: relative; text-align: center;">
-<!--<ion-card-header>
-  {{dt.title}}
-</<ion-card-header>-->
+<loading-indicator *ngIf="!images"></loading-indicator>
+<ion-item *ngFor="let dt of images" no-line>
+  <ion-card style="padding:0px;">
+<ion-card-content>
+      <ion-item style="padding-top:opx; padding-bottom: 0px;">
+    <ion-avatar item-left>
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQUevolQIZ3kI3wr3qfkQcIrwDIQjM8WdGGAhgTTGByPs2PHInzMCBm8wM">
+    </ion-avatar>
+    <h2>{{dt.title}}</h2>
+    <p>{{dt.author}}</p>
+  </ion-item>
+</ion-card-content>
 <img [src]="dt.img" (click)="imgview(dt)" width="470px"/>
 <div style="position: absolute; top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff;"></div>
 <div style="font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff;"></div>
-<ion-item style="font-size: 1.0em;">
-  <button ion-button clear item-left>Like {{dt.n_likes}}</button>
-  <button ion-button clear item-right>Comment</button>
-</ion-item>
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        11h ago
+      </ion-note>
+    </ion-col>
+  </ion-row>
 </ion-card>
 </ion-item>
 </ion-list>

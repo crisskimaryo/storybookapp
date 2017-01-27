@@ -7,8 +7,9 @@ export class Data {
 
   constructor(public http: Http) { }
 // call proposed books
+
   propbooks() {
-    return this.http.get('assets/mocks/booksdata.json')
+    return this.http.get('assets/mocks/books.json')
       .map(res => res.json())
   }
 

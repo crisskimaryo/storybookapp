@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, NavParams, ModalController } from 'ionic-angular';
-import {SearchPage} from '../search/search'
+import { SearchPage } from '../search/search'
 import { ToreadPage } from '../book/toread/toread';
 import { TolistenPage } from '../listen/tolisten/tolisten';
 import { Data } from '../../providers/data'
@@ -27,7 +27,7 @@ export class HomePage {
   //temporary object for search data retrieve on null
   im: any;
   searchQuery: string = '';
-  features:any;
+  features: any;
   constructor(
     private modalCtrl: ModalController,
     public navCtrl: NavController,
@@ -50,6 +50,12 @@ export class HomePage {
 
 
   ionViewDidLoad() {
+
+    this.loadingdata()
+
+  }
+
+  loadingdata() {
     this._listen.offlinelisten()
       .subscribe(
       data => { this.listens = data.listen; }
@@ -86,6 +92,7 @@ export class HomePage {
       );
 
   }
+
   offlinedata() {
     this.offlineLoading.present()
     this._book.offlinedata()
@@ -158,7 +165,7 @@ export class HomePage {
     console.log("playing :" + "  " + lis.title + ", Duration: " + lis.duration);
   }
 
-listenview(dt) {
+  listenview(dt) {
 
     let modal = this.modalCtrl.create(ListenplayerComponent, { data: dt })
     modal.present()
@@ -194,13 +201,24 @@ listenview(dt) {
   }
 
 
+  searchnav() {
+    let modal = this.modalCtrl.create(SearchPage)
+    modal.present()
+  }
+  notifynav() {
+    let modal = this.modalCtrl.create(notificationComponent)
+    modal.present()
+  }
 
-searchnav(){
-  let modal =this.modalCtrl.create(SearchPage)
-  modal.present()
-}
-notifynav(){
-  let modal =this.modalCtrl.create(notificationComponent)
-  modal.present()
-}
+
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    this.loadingdata()
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
 }

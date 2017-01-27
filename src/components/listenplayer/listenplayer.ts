@@ -19,6 +19,7 @@ export class ListenplayerComponent {
       paginationClickable: true
     }
 
+
   }
   ionViewDidLoad() {
 
@@ -30,7 +31,7 @@ export class ListenplayerComponent {
 
       this.navCtrl.pop()
     }
-    if(e.direction == 8) {
+    if (e.direction == 8) {
       console.log("swiped" + e.direction);
       this.navCtrl.pop()
     }
@@ -39,5 +40,5 @@ export class ListenplayerComponent {
     this.navCtrl.pop();
   }
 
-  
+
 }
