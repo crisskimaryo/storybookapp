@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular'
   selector: 'listenplayer',
   templateUrl: 'listenplayer.html'
 })
+
 export class ListenplayerComponent {
   imgs: any;
   imglist: any[];
